@@ -40,6 +40,7 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    public Characters player;
 
     private void Awake()
     {
@@ -50,6 +51,7 @@ public class StageManager : MonoBehaviour
             stageManager.inputManager.init();
             mapManager.init();
         }
+        player = GameObject.Find("Player").GetComponent<Characters>();
     }
     private void Start()
     {

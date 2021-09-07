@@ -54,7 +54,6 @@ public class Characters : MonoBehaviour
     public void onclick()
     {
         List<Pos> candids = MapManager.getPossiblePos(curpos.x, curpos.y);
-        //Debug.Log($"count:{candids.Count}");
         foreach (var a in candids)
         {
             int x = a.x;
@@ -62,5 +61,20 @@ public class Characters : MonoBehaviour
             StageManager.stageManager.mapManager.tilemaps[2].SetTile(new Vector3Int(x, y, 0),
                 StageManager.stageManager.mapManager.nav_tile);
         }
+    }
+
+    public void move(List<Pos> path)
+    {
+        StartCoroutine(move_c(path));
+    }
+    IEnumerator move_c(List<Pos> path)
+    {
+        for (int i = 0; i < path.Count; i++)
+        {
+            transform.position = StageManager.stageManager.mapManager.tilemaps[0].GetCellCenterWorld(new Vector3Int(path[i].x, path[i].y, 0)) + new Vector3(0, 0.5f, 0);
+            yield return new WaitForSeconds(0.2f);
+        }
+        MoveButtons.nav_on = false;
+        yield break;
     }
 }

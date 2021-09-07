@@ -40,7 +40,6 @@ public class MapManager : MonoBehaviour
             {
                 pos = new Vector3Int(i, j, 0);
                 Vector3 gridpos = grid.GetCellCenterWorld(pos);
-                //Debug.Log(gridpos);
                 int idx = i * Constants.mapWidth + j;
                 if (map[idx] != (int)tileType.water)
                 {
@@ -91,8 +90,6 @@ public class MapManager : MonoBehaviour
         //update_tileanims(20, 1);
         // characters_tile.SetTile(new Vector3Int(2, 0, 0), char_tiles[0].arr[0]);
         // characters_tile.SetTile(new Vector3Int(4, 0, 0), char_tiles[1].arr[0]);
-        //StartCoroutine("a");
-        //Debug.Log(base_tile.GetCellCenterWorld(new Vector3Int(0, 0, 0)));
     }
 
 
@@ -109,7 +106,7 @@ public class MapManager : MonoBehaviour
                 map[i, j] = StageManager.stageManager.mapManager.map[i * Constants.mapHeight + j];
             }
         }
-        if (true)
+        if (StageManager.stageManager.player.character_Stat.moveType == moveType.ground)
         {
             int[,] dist = new int[Constants.mapHeight, Constants.mapWidth];
             for (int i = 0; i < Constants.mapHeight; i++)
@@ -166,7 +163,6 @@ public class MapManager : MonoBehaviour
                     if (Mathf.Abs(dx) + Mathf.Abs(dy) <= range)
                     {
                         result.Add(new Pos(i, j));
-                        Debug.Log($"add {i},{j}");
                     }
                 }
             }
@@ -186,12 +182,9 @@ public class MapManager : MonoBehaviour
     }
     public List<Pos> getPath(int startx, int starty, int endx, int endy)
     {
+        if (startx == endx && starty == endy) return null;
         int[] map = StageManager.stageManager.mapManager.map;
         Node[,] map2d = new Node[Constants.mapHeight, Constants.mapWidth];
-        Node StartNode = new Node(startx, starty);
-        Node EndNode = new Node(endx, endy);
-        List<Node> openList = new List<Node>() { StartNode };
-        List<Node> closeList = new List<Node>();
 
         for (int i = 0; i < Constants.mapHeight; i++)
         {
@@ -205,17 +198,19 @@ public class MapManager : MonoBehaviour
                 map2d[i, j] = node;
             }
         }
+        map2d[startx, starty].gCost = 0;
+        map2d[startx, starty].hCost = CalcDistance(map2d[startx, starty], map2d[endx, endy]);
+        map2d[startx, starty].calcFCost();
 
-        StartNode.gCost = 0;
-        StartNode.hCost = CalcDistance(StartNode, EndNode);
-        StartNode.calcFCost();
+        List<Node> openList = new List<Node>() { map2d[startx, starty] };
+        List<Node> closeList = new List<Node>();
 
         while (openList.Count > 0)
         {
             Node currNode = GetLowestNode(openList);
-            if (currNode.x == EndNode.x&&currNode.y==EndNode.y)
+            if (currNode.x == endx && currNode.y == endy)
             {
-                List<Node> path = CalcPath(EndNode);
+                List<Node> path = CalcPath(map2d[endx, endy]);
                 List<Pos> result = new List<Pos>();
                 foreach (Node a in path)
                 {
@@ -226,19 +221,23 @@ public class MapManager : MonoBehaviour
 
             openList.Remove(currNode);
             closeList.Add(currNode);
-            foreach (Node n in GetNeighborList(currNode, map2d))
+            List<Node> neighbors = GetNeighborList(currNode, map2d);
+            foreach (Node n in neighbors)
             {
-                if (closeList.Contains(n)) continue;
+                if (closeList.Contains(n))
+                    continue;
                 int tGcost = currNode.gCost + CalcDistance(currNode, n);
                 if (tGcost < n.gCost)
                 {
                     n.cameFrom = currNode;
                     n.gCost = tGcost;
-                    n.hCost = CalcDistance(n, EndNode);
+                    n.hCost = CalcDistance(n, map2d[endx, endy]);
                     n.calcFCost();
 
-                    if (!openList.Contains(n))
+                    if (!openList.Contains(n) && map2d[n.x, n.y].grid != (int)tileType.rock && map2d[n.x, n.y].grid != (int)tileType.water)
                     {
+                        // todo : 여기에 요정우리나 적이 있는지 조건도 추가해야함
+                        // 지금은 지형지물만 고려했음
                         openList.Add(n);
                     }
                 }
