@@ -7,10 +7,9 @@ public class MoveButtons : Buttons
     public static bool nav_on = false;
     public override void OnClick()
     {
-        Debug.Log(nav_on);
         if (!nav_on)
         {
-            StageManager.stageManager.player.onclick();
+            StageManager.stageManager.player.showNav();
             nav_on = true;
         }
         else

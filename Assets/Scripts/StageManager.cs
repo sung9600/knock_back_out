@@ -40,8 +40,10 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    public Characters player;
+    public Player player;
 
+    public Transform hand;
+    public GameObject card_prefab;
     private void Awake()
     {
         if (instance == null)
@@ -51,7 +53,15 @@ public class StageManager : MonoBehaviour
             stageManager.inputManager.init();
             mapManager.init();
         }
-        player = GameObject.Find("Player").GetComponent<Characters>();
+        player = GameObject.Find("Player").GetComponent<Player>();
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                GameObject card = Instantiate(card_prefab, hand);
+                card.GetComponent<RectTransform>().localPosition = new Vector3(-400 + 200 * j, -150 + 300 * i, 0);
+            }
+        }
     }
     private void Start()
     {
@@ -59,14 +69,17 @@ public class StageManager : MonoBehaviour
         Rect rect = Camera.main.rect;
         float scale_h = ((float)Screen.width / Screen.height) / ((float)9 / 16);
         float scale_w = 1f / scale_h;
-
+        Debug.Log(Screen.width);
+        Debug.Log(Screen.height);
         if (scale_h > 1)
         {
+            //가로가 더 큼
             rect.width = scale_w;
             rect.x = (1f - scale_w) / 2f;
         }
         else
         {
+            //세로가 더 큼
             rect.height = scale_h;
             rect.y = (1f - scale_h) / 2f;
         }

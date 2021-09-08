@@ -36,6 +36,14 @@ public enum moveType
     air,
     end
 }
+public enum CardType
+{
+    Attack,
+    Skill,
+    Magic,
+    Debuff,
+    end
+}
 
 static class Constants
 {

@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Rider.Editor", "Unity
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.VSCode.Editor", "Unity.VSCode.Editor.csproj", "{16657bcd-c39c-abdf-3a4b-1d2d0c63fc2e}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Sprite.Editor", "Unity.2D.Sprite.Editor.csproj", "{456f024f-99a1-5f7d-6ded-84bc810fc1a9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Editor", "Unity.2D.Tilemap.Editor.csproj", "{aeb85a43-42a3-d8b1-6760-12e3221bde42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +66,10 @@ Global
 		{8a2cf510-54f9-842e-04e8-0ffe434f6f69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16657bcd-c39c-abdf-3a4b-1d2d0c63fc2e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{16657bcd-c39c-abdf-3a4b-1d2d0c63fc2e}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{456f024f-99a1-5f7d-6ded-84bc810fc1a9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{456f024f-99a1-5f7d-6ded-84bc810fc1a9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{aeb85a43-42a3-d8b1-6760-12e3221bde42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{aeb85a43-42a3-d8b1-6760-12e3221bde42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

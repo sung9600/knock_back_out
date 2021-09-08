@@ -85,14 +85,13 @@ public class MapManager : MonoBehaviour
         map = new int[Constants.totalCount];
         MapGenerator.makeMap(map);
         drawBases(map);
-        tilemaps[4].SetTile(tilemaps[4].origin, nav_tile);
         //update_tileanims(10, 0);
         //update_tileanims(20, 1);
         // characters_tile.SetTile(new Vector3Int(2, 0, 0), char_tiles[0].arr[0]);
         // characters_tile.SetTile(new Vector3Int(4, 0, 0), char_tiles[1].arr[0]);
     }
 
-
+    #region navigation
     public static List<Pos> getPossiblePos(int nx, int ny)
     {
         List<Pos> result = new List<Pos>();
@@ -287,4 +286,16 @@ public class MapManager : MonoBehaviour
         }
         return top;
     }
+    #endregion
+    public void clearNavTiles()
+    {
+        for (int i = 0; i < Constants.mapHeight; i++)
+        {
+            for (int j = 0; j < Constants.mapWidth; j++)
+            {
+                tilemaps[2].SetTile(new Vector3Int(i, j, 0), null);
+            }
+        }
+    }
+
 }

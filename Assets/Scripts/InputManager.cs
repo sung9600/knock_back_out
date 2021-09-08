@@ -43,14 +43,7 @@ public class InputManager
                             }
                         }
                     }
-                    //clicked_char = false;
-                    for (int i = 0; i < Constants.mapHeight; i++)
-                    {
-                        for (int j = 0; j < Constants.mapWidth; j++)
-                        {
-                            StageManager.stageManager.mapManager.tilemaps[2].SetTile(new Vector3Int(i, j, 0), null);
-                        }
-                    }
+                    StageManager.stageManager.mapManager.clearNavTiles();
 
                 }
                 //if (clicked_ui)

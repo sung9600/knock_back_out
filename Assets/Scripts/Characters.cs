@@ -44,24 +44,7 @@ public class Characters : MonoBehaviour
     public Pos atkpos = new Pos(-1, -1);
     public Pos curpos = new Pos(0, 0);
 
-    public void move((int, int) a)
-    {
-        int targetx = a.Item1;
-        int targety = a.Item2;
-    }
 
-
-    public void onclick()
-    {
-        List<Pos> candids = MapManager.getPossiblePos(curpos.x, curpos.y);
-        foreach (var a in candids)
-        {
-            int x = a.x;
-            int y = a.y;
-            StageManager.stageManager.mapManager.tilemaps[2].SetTile(new Vector3Int(x, y, 0),
-                StageManager.stageManager.mapManager.nav_tile);
-        }
-    }
 
     public void move(List<Pos> path)
     {
