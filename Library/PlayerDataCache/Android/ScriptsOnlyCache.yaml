@@ -1,6 +1,7 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AutoLetterbox.ForceCameraRatio
     - Cards
     - MapManager
     - MoveButtons
@@ -66,29 +67,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2036}
     - Class: 114
-      Script: {instanceID: 2232}
+      Script: {instanceID: 2234}
     - Class: 114
-      Script: {instanceID: 2300}
+      Script: {instanceID: 2302}
     - Class: 114
-      Script: {instanceID: 2402}
+      Script: {instanceID: 2404}
     - Class: 114
-      Script: {instanceID: 2444}
+      Script: {instanceID: 2446}
     - Class: 114
-      Script: {instanceID: 2560}
+      Script: {instanceID: 2562}
     - Class: 114
-      Script: {instanceID: 2742}
+      Script: {instanceID: 2712}
     - Class: 114
-      Script: {instanceID: 2822}
+      Script: {instanceID: 2746}
     - Class: 114
-      Script: {instanceID: 3164}
+      Script: {instanceID: 2826}
     - Class: 114
-      Script: {instanceID: 3734}
+      Script: {instanceID: 3168}
     - Class: 114
-      Script: {instanceID: 3980}
+      Script: {instanceID: 3740}
     - Class: 114
-      Script: {instanceID: 4024}
+      Script: {instanceID: 3986}
     - Class: 114
-      Script: {instanceID: 4326}
+      Script: {instanceID: 4030}
+    - Class: 114
+      Script: {instanceID: 4332}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -212,7 +215,7 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
-      Hash: b91d7ad4d8f041412ab995f18b279d1a
+      Hash: c143a2474a80578df7f875fc55647101
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Cards
@@ -222,6 +225,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
     className: PlaymodeTestsController
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraSet
   - hash:
       serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
@@ -320,6 +329,12 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
+      Hash: 95d86d606c5893d3ac8050d29afcf305
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: AutoLetterbox
+    className: ForceCameraRatio
+  - hash:
+      serializedVersion: 2
       Hash: 748dd2a2a28da4e618912da5ac45684b
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -404,7 +419,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 35965d82afff04431d6099a40acbfea2
+      Hash: 5ff29e154c50a4bf2499bd53f8b27cc5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapManager
@@ -482,6 +497,12 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
+      Hash: ef1c4c7fc59f886d862f6e3d1858c50b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Enemy
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -542,7 +563,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: 51da602420dd75fd51476df339fa41a2
+      Hash: ef1c4c7fc59f886d862f6e3d1858c50b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Characters
@@ -554,7 +575,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 51da602420dd75fd51476df339fa41a2
+      Hash: ef1c4c7fc59f886d862f6e3d1858c50b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
