@@ -22,14 +22,6 @@ public enum characterType
     end
 }
 
-public enum atkType
-{
-    direct,
-    melee,
-    indirect,
-    end
-}
-
 public enum moveType
 {
     ground,
@@ -38,7 +30,9 @@ public enum moveType
 }
 public enum CardType
 {
-    Attack,
+    Attack_near,
+    Attack_direct,
+    Attack_indirect,
     Skill,
     Magic,
     Debuff,
@@ -49,7 +43,8 @@ public enum Character_status
 {
     waiting,
     moving,
-    attacking
+    attacking,
+    hit
 }
 
 static class Constants

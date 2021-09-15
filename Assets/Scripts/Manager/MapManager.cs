@@ -20,6 +20,7 @@ public class MapManager : MonoBehaviour
     // 좌하
     // 우상
     public TileBase nav_tile;
+    public TileBase dest_tile;
     public int[] map;
 
     public Dictionary<(int, int), IEnumerator> tileanims = new Dictionary<(int, int), IEnumerator>();

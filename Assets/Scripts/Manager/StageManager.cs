@@ -59,11 +59,13 @@ public class StageManager : MonoBehaviour
             for (int j = 0; j < 5; j++)
             {
                 GameObject card = Instantiate(card_prefab, hand);
+                card.GetComponent<Cards>().cardInfo.type = i % 2 == 0 ? CardType.Attack_direct : CardType.Attack_indirect;
                 card.GetComponent<RectTransform>().localPosition = new Vector3(-400 + 200 * j, -150 + 300 * i, 0);
                 card.GetComponent<Cards>().SetOrigin(card.GetComponent<RectTransform>().localPosition);
             }
         }
         Input.multiTouchEnabled = false;
+        Screen.SetResolution(1080, 1920, true, 60);
     }
 
     private void Update()

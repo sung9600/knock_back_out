@@ -17,7 +17,7 @@ public class Cards : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             ID = Cards.card_num++;
             name = "card" + ID;
-            type = CardType.Attack;
+            type = CardType.Attack_near;
             Cost = 1;
         }
     }
@@ -50,7 +50,7 @@ public class Cards : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     public void OnDrag(PointerEventData eventData)
     {
         if (clicked_card == this.cardInfo.ID)
-            transform.position = Input.mousePosition + new Vector3(0, 500, 0);
+            transform.position = Input.mousePosition + new Vector3(0, 250, 0);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -60,7 +60,7 @@ public class Cards : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
             if (Input.mousePosition.y >= Screen.height / 2 && !usingcard)
             {
                 Debug.Log("use card");
-                StageManager.stageManager.player.useCard(cardInfo);
+                StageManager.stageManager.player.useCard(this);
                 usingcard = true;
                 Destroy(gameObject);
             }

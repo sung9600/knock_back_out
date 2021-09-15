@@ -25,7 +25,6 @@ public class Character_stat
     public uint maxhp;
     public uint shield;
     public uint moverange;
-    public atkType atkType;
     public moveType moveType;
 
     public Character_stat()
@@ -34,7 +33,6 @@ public class Character_stat
         this.maxhp = 0;
         this.shield = 0;
         this.moverange = 0;
-        this.atkType = atkType.direct;
         this.moveType = moveType.ground;
     }
 }
@@ -76,10 +74,11 @@ public class Characters : MonoBehaviour
     //down up
     [SerializeField]
     private Array2d<Sprite>[] idle_sprites;
-    [SerializeField]
-    private Array2d<Sprite>[] moving_sprites;
+    //private Array2d<Sprite>[] moving_sprites;
     [SerializeField]
     private Array2d<Sprite>[] attack_sprites;
+    [SerializeField]
+    private Array2d<Sprite>[] hit_sprites;
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -92,23 +91,18 @@ public class Characters : MonoBehaviour
     {
         int i = 0;
         float idle_gap = 1f / idle_sprites[0].data.Length;
-        float moving_gap = 1f / moving_sprites[0].data.Length;
-        float attack_gap = 2f / attack_sprites[0].data.Length;
+        float attack_gap = 1f / attack_sprites[0].data.Length;
+        float hit_gap = 1f / hit_sprites[0].data.Length;
         while (true)
         {
             switch (status)
             {
+                case Character_status.moving:
                 case Character_status.waiting:
                     spriteRenderer.sprite = idle_sprites[up ? 1 : 0].data[i++];
                     if (i >= idle_sprites[0].data.Length)
                         i = 0;
                     yield return new WaitForSeconds(idle_gap);
-                    break;
-                case Character_status.moving:
-                    if (i >= moving_sprites[0].data.Length)
-                        i = 0;
-                    spriteRenderer.sprite = moving_sprites[up ? 1 : 0].data[i++];
-                    yield return new WaitForSeconds(moving_gap);
                     break;
                 case Character_status.attacking:
                     if (i >= attack_sprites[0].data.Length)
@@ -123,6 +117,19 @@ public class Characters : MonoBehaviour
                     }
                     yield return new WaitForSeconds(attack_gap);
                     break;
+                case Character_status.hit:
+                    if (i >= hit_sprites[0].data.Length)
+                    {
+                        i = 0;
+                    }
+                    spriteRenderer.sprite = hit_sprites[up ? 1 : 0].data[i++];
+                    if (i >= hit_sprites[0].data.Length)
+                    {
+                        i = 0;
+                        status = Character_status.waiting;
+                    }
+                    yield return new WaitForSeconds(hit_gap);
+                    break;
             }
         }
     }
@@ -131,10 +138,9 @@ public class Characters : MonoBehaviour
     {
         Pos nextDir = after - before;
         up = nextDir.x + nextDir.y > 0;
-        if (nextDir.x < 0 || nextDir.x == 0 && nextDir.y > 0)
-            left = true;
-        else left = false;
-        if (left == up) spriteRenderer.flipX = true;
+        left = nextDir.x < 0 || (nextDir.x == 0 && nextDir.y > 0);
+        //Debug.Log($"left:{left},up:{up}");
+        if (!left) spriteRenderer.flipX = true;
         else spriteRenderer.flipX = false;
     }
 }

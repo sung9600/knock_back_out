@@ -61,37 +61,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1474}
     - Class: 114
-      Script: {instanceID: 1724}
+      Script: {instanceID: 1726}
     - Class: 114
-      Script: {instanceID: 1992}
+      Script: {instanceID: 1994}
     - Class: 114
-      Script: {instanceID: 2036}
+      Script: {instanceID: 2038}
     - Class: 114
-      Script: {instanceID: 2234}
+      Script: {instanceID: 2236}
     - Class: 114
-      Script: {instanceID: 2302}
+      Script: {instanceID: 2304}
     - Class: 114
-      Script: {instanceID: 2404}
+      Script: {instanceID: 2406}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2448}
     - Class: 114
-      Script: {instanceID: 2562}
+      Script: {instanceID: 2564}
     - Class: 114
-      Script: {instanceID: 2712}
+      Script: {instanceID: 2714}
     - Class: 114
-      Script: {instanceID: 2746}
+      Script: {instanceID: 2748}
     - Class: 114
-      Script: {instanceID: 2826}
+      Script: {instanceID: 2828}
     - Class: 114
-      Script: {instanceID: 3168}
+      Script: {instanceID: 3170}
     - Class: 114
-      Script: {instanceID: 3740}
+      Script: {instanceID: 3742}
     - Class: 114
-      Script: {instanceID: 3986}
+      Script: {instanceID: 3988}
     - Class: 114
-      Script: {instanceID: 4030}
+      Script: {instanceID: 4032}
     - Class: 114
-      Script: {instanceID: 4332}
+      Script: {instanceID: 4334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -497,7 +497,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: ef1c4c7fc59f886d862f6e3d1858c50b
+      Hash: 8e41aaf020ff5215824a9ed9f89cb874
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -563,7 +563,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: ef1c4c7fc59f886d862f6e3d1858c50b
+      Hash: 8e41aaf020ff5215824a9ed9f89cb874
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Characters
@@ -575,7 +575,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: ef1c4c7fc59f886d862f6e3d1858c50b
+      Hash: 8e41aaf020ff5215824a9ed9f89cb874
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
