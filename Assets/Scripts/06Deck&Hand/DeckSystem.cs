@@ -23,15 +23,15 @@ public class DeckSystem : MonoBehaviour
     {
         for (int i = 0; i < 30; i++)
         {
-            CardInfo cardInfo = new CardInfo();
+            CardInfo cardInfo = new CardInfo(0);
             usedCards.Add(cardInfo);
         }
         ShuffleDeck();
-        for (int i = 0; i < hand.Count; i++)
-        {
-            handGO[i].cardInfo = hand[i];
-            handGO[i].gameObject.SetActive(true);
-        }
+        // for (int i = 0; i < hand.Count; i++)
+        // {
+        //     handGO[i].cardInfo = hand[i];
+        //     handGO[i].gameObject.SetActive(true);
+        // }
     }
 
     public void ShuffleDeck()
@@ -52,10 +52,6 @@ public class DeckSystem : MonoBehaviour
             deck.Enqueue(deckTemp[i]);
         }
         deckTemp.Clear();
-        for (int i = 0; i < 5; i++)
-        {
-            DrawCardFromDeck();
-        }
     }
 
     public CardInfo DrawCardFromDeck()

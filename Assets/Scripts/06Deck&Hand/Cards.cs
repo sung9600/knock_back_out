@@ -12,16 +12,21 @@ public class CardInfo
     public string name;
     [SerializeField]
     public CardType type;
-    public int Cost = 0;
+    public int Cost = 1;
     public int Range = 3;
     public int ID = 0;
-    public CardInfo()
+    public CardInfo(int a)
     {
         ID = Cards.card_num++;
         name = "card" + ID;
         type = CardType.Attack_near;
         Cost = 1;
-        //Debug.Log(name);
+        Debug.Log(name);
+    }
+
+    public CardInfo()
+    {
+        //Debug.Log("int 생성자");
     }
 }
 public class Cards : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
@@ -35,19 +40,18 @@ public class Cards : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     public static int clicked_card = -1;
     [SerializeField]
     private Vector3 origin;
+    private Quaternion rotation_origin;
     private static Canvas canvas;
     public static bool usingcard = false;
 
-    private void Awake()
-    {
-        rectTransform = GetComponent<RectTransform>();
-    }
-    private void OnEnable()
+    public void cardInfoUI()
     {
         texts[0].SetText(cardInfo.name);
         texts[1].SetText(cardInfo.Cost.ToString());
         if (canvas == null)
             canvas = GameObject.Find("UI").transform.GetChild(0).GetComponent<Canvas>();
+        rectTransform = GetComponent<RectTransform>();
+        // 여기에 이미지 + 카드효과 등등 표시하는 기능 추가해야함
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -62,34 +66,52 @@ public class Cards : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         if (TurnManager.turnManager.phase != phase.player_turn)
         {
             Debug.Log("to Origin : not player turn");
-            rectTransform.anchoredPosition = origin;
-            transform.localScale = new Vector3(1, 1, 1);
-            usingcard = false;
-            clicked_card = -1;
+            toOrigin();
+            return;
         }
+
         if (clicked_card == cardInfo.ID)
         {
             if (Input.mousePosition.y >= Screen.height / 2 && !usingcard)
             {
+
+                if (TurnManager.turnManager.cur_cost >= cardInfo.Cost)
+                {
+                    TurnManager.turnManager.cur_cost -= cardInfo.Cost;
+                    UIManager.uIManager.updateCost(TurnManager.turnManager.cur_cost, TurnManager.turnManager.total_cost);
+                }
+                else
+                {
+                    Cost.cost_indicator.shake();
+                    toOrigin();
+                    return;
+                }
+
                 Debug.Log("use card");
                 StageManager.stageManager.player.useCard(this);
                 usingcard = true;
                 DeckSystem.deckSystem.toUsedCard(cardInfo);
                 rectTransform.anchoredPosition = origin;
                 transform.localScale = new Vector3(1, 1, 1);
-                gameObject.SetActive(false);
-                //Destroy(gameObject);
+                //gameObject.SetActive(false);
+                Destroy(this.gameObject);
             }
             else
             {
                 Debug.Log("to Origin");
-                rectTransform.anchoredPosition = origin;
-                transform.localScale = new Vector3(1, 1, 1);
-                usingcard = false;
-                clicked_card = -1;
+                toOrigin();
             }
-            //clicked_card = -1;
         }
+    }
+
+
+    private void toOrigin()
+    {
+        rectTransform.anchoredPosition = origin;
+        transform.localScale = new Vector3(1, 1, 1);
+        usingcard = false;
+        clicked_card = -1;
+        rectTransform.rotation = rotation_origin;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -100,7 +122,9 @@ public class Cards : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         {
             clicked_card = cardInfo.ID;
             transform.localScale = new Vector3(3, 3, 3);
-            //usingcard = true;
+            rotation_origin = rectTransform.rotation;
+            origin = rectTransform.localPosition;
+            rectTransform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 

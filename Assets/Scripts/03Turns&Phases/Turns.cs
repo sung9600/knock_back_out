@@ -22,13 +22,14 @@ public class Turns : ScriptableObject
         if (phases[index].IsComplete())
         {
             //Debug.Log(string.Format("phase {0} done", index));
-            phases[index].OnEndPhase();
             index++;
-            TurnManager.turnManager.phase++;
+            Debug.Log(string.Format("turns: {0}", TurnManager.turnManager.phase));
+            phases[index].OnEndPhase();
             if (index > phases.Length - 1)
             {
                 //한턴 종료
                 //index = 0;
+                Debug.Log("turn done");
                 result = true;
                 return result;
             }

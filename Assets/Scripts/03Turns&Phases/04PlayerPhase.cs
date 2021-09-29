@@ -7,6 +7,7 @@ public class PlayerPhase : Phases
     public override void OnStartPhase()
     {
         TurnManager.turnManager.indicator.SetText("player phase");
+        TurnManager.turnManager.phase = phase.player_turn;
     }
     public override bool IsComplete()
     {

@@ -42,7 +42,9 @@ public class StageManager : MonoBehaviour
 
     public Player player;
 
-    public Transform hand;
+    public Transform hand1;
+    public Transform hand2;
+    public GameObject card_Prefab;
     public static bool gameStop;
     private void Awake()
     {

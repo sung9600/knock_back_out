@@ -25,7 +25,6 @@ public class InputManager
                 return;
             if (TurnManager.turnManager.phase != phase.player_turn)
                 return;
-            Debug.Log("abc");
             // 처음 캐릭터 배치 예외처리
             Vector3Int gridMousePos = GetGridPos();
             int x = gridMousePos.x;
@@ -115,6 +114,7 @@ public class InputManager
                         Cards.clicked_card = -1;
                         StageManager.stageManager.mapManager.clearNavTiles();
                         MoveButtons.nav_on = false;
+                        Player.usedcard.cardInfo.type = CardType.end;
                     }
                 }
                 else //if (Player.usedcard.cardInfo.type == CardType.Attack_indirect)
@@ -123,6 +123,7 @@ public class InputManager
                     // 곡사공격
                     if (StageManager.stageManager.mapManager.tilemaps[2].GetTile(gridMousePos - new Vector3Int(5, 5, 0)) != null)
                     {
+                        Debug.Log("elseattack if");
                         StageManager.stageManager.player.changeDir(StageManager.stageManager.player.curpos, new Pos(x - 5, y - 5));
                         StageManager.stageManager.player.status = Character_status.attacking;
                         StageManager.stageManager.mapManager.update_tileanims((x - 5) * 5 + (y - 5), 1);
@@ -130,9 +131,10 @@ public class InputManager
                         Cards.clicked_card = -1;
                         StageManager.stageManager.mapManager.clearNavTiles();
                         MoveButtons.nav_on = false;
+                        Player.usedcard.cardInfo.type = CardType.end;
                     }
                 }
-                Player.usedcard.cardInfo.type = CardType.end;
+                Debug.Log("elseattack iif");
             }
         }
 

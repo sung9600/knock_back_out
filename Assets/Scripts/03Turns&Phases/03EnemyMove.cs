@@ -7,6 +7,7 @@ public class EnemyMove : Phases
     public override void OnStartPhase()
     {
         TurnManager.turnManager.indicator.SetText("enemy move phase");
+        TurnManager.turnManager.phase = phase.enemy_move;
     }
     public override bool IsComplete()
     {

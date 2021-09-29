@@ -22,12 +22,12 @@ public class TurnManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        turns = new Turns[5];
+        turns = new Turns[1];
         turns[0] = ScriptableObject.CreateInstance<PlayerSetTurn>();
-        turns[1] = ScriptableObject.CreateInstance<PlayerSetTurn>();
-        turns[2] = ScriptableObject.CreateInstance<PlayerSetTurn>();
-        turns[3] = ScriptableObject.CreateInstance<PlayerSetTurn>();
-        turns[4] = ScriptableObject.CreateInstance<PlayerSetTurn>();
+        // turns[1] = ScriptableObject.CreateInstance<PlayerSetTurn>();
+        // turns[2] = ScriptableObject.CreateInstance<PlayerSetTurn>();
+        // turns[3] = ScriptableObject.CreateInstance<PlayerSetTurn>();
+        // turns[4] = ScriptableObject.CreateInstance<PlayerSetTurn>();
     }
 
     private void Start()
@@ -37,6 +37,11 @@ public class TurnManager : MonoBehaviour
     public TextMeshProUGUI indicator;
 
     public int turnIndex;
+
+    public int total_cost = 3;
+    public int cur_cost = 3;
+
+
     IEnumerator turnmanage()
     {
         while (true)
@@ -52,6 +57,8 @@ public class TurnManager : MonoBehaviour
                 Debug.Log(string.Format("turn {0} over", turn));
                 turnIndex++;
                 phase = phase.map_gimmick;
+                cur_cost = 3;
+                UIManager.uIManager.updateCost(cur_cost, total_cost);
                 if (turnIndex > turns.Length - 1)
                 {
                     // 게임 클리어 조건 : 생존

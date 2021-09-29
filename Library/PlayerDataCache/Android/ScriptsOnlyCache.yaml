@@ -3,10 +3,12 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AutoLetterbox.ForceCameraRatio
     - Cards
+    - Cost
     - DeckSystem
     - MapManager
     - MoveButtons
     - Player
+    - RadialLayout
     - StageManager
     - TurnEndButton
     - TurnManager
@@ -33,6 +35,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEditor.UI.dll:
+    - UnityEditor.UI.ImageEditor
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -63,51 +67,55 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 646}
+      Script: {instanceID: 654}
     - Class: 114
-      Script: {instanceID: 1478}
+      Script: {instanceID: 1486}
     - Class: 114
-      Script: {instanceID: 1728}
+      Script: {instanceID: 1740}
     - Class: 114
-      Script: {instanceID: 1996}
+      Script: {instanceID: 2008}
     - Class: 114
-      Script: {instanceID: 2040}
+      Script: {instanceID: 2052}
     - Class: 114
-      Script: {instanceID: 2250}
+      Script: {instanceID: 2264}
     - Class: 114
-      Script: {instanceID: 2318}
+      Script: {instanceID: 2332}
     - Class: 114
-      Script: {instanceID: 2372}
+      Script: {instanceID: 2386}
     - Class: 114
-      Script: {instanceID: 2422}
+      Script: {instanceID: 2436}
     - Class: 114
-      Script: {instanceID: 2462}
+      Script: {instanceID: 2474}
     - Class: 114
-      Script: {instanceID: 2580}
+      Script: {instanceID: 2478}
     - Class: 114
-      Script: {instanceID: 2598}
+      Script: {instanceID: 2596}
     - Class: 114
-      Script: {instanceID: 2732}
+      Script: {instanceID: 2614}
     - Class: 114
-      Script: {instanceID: 2766}
+      Script: {instanceID: 2676}
     - Class: 114
-      Script: {instanceID: 2848}
+      Script: {instanceID: 2750}
     - Class: 114
-      Script: {instanceID: 3154}
+      Script: {instanceID: 2784}
     - Class: 114
-      Script: {instanceID: 3200}
+      Script: {instanceID: 2866}
     - Class: 114
-      Script: {instanceID: 3240}
+      Script: {instanceID: 3186}
     - Class: 114
-      Script: {instanceID: 3786}
+      Script: {instanceID: 3232}
     - Class: 114
-      Script: {instanceID: 4034}
+      Script: {instanceID: 3272}
     - Class: 114
-      Script: {instanceID: 4080}
+      Script: {instanceID: 3504}
     - Class: 114
-      Script: {instanceID: 4384}
+      Script: {instanceID: 3822}
     - Class: 114
-      Script: {instanceID: 22884}
+      Script: {instanceID: 4072}
+    - Class: 114
+      Script: {instanceID: 4118}
+    - Class: 114
+      Script: {instanceID: 4428}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -243,16 +251,16 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CameraSet
-  - hash:
-      serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: b5fc3843e35dd6d09a719cb0d10ff4a5
+    assemblyName: DemiLib.dll
+    namespaceName: DG.DemiLib.External
+    className: DeHierarchyComponent
   - hash:
       serializedVersion: 2
       Hash: 5f170942ee57c7a568f5bcfc7521adea
@@ -261,7 +269,7 @@ ScriptsOnlyBuild:
     className: EnumerableTestState
   - hash:
       serializedVersion: 2
-      Hash: 6bb5e286937afe0937b70209c6b0fab6
+      Hash: 8588bbba1e2df9b2e5c3ca59f5687706
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StageManager
@@ -273,7 +281,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 7886a96a4e4fd9e84adaad9759c54825
+      Hash: 7a62529a42ddb58494acbddeee626e9e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TurnManager
@@ -307,6 +315,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Cost
   - hash:
       serializedVersion: 2
       Hash: 760787567e1b60d64a3e421ab83ee14a
@@ -363,6 +377,12 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
+      Hash: 4b39ecb844941edb3ae4debc5ad94186
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RadialLayout
+  - hash:
+      serializedVersion: 2
       Hash: 95d86d606c5893d3ac8050d29afcf305
     assemblyName: Assembly-CSharp.dll
     namespaceName: AutoLetterbox
@@ -417,10 +437,28 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 633b7a21a07e2e848df526bbef0edc40
+    assemblyName: DOTweenPro.dll
+    namespaceName: DG.Tweening
+    className: DOTweenPath
+  - hash:
+      serializedVersion: 2
+      Hash: d452b4ce4b4cca771c54091cc2623c68
+    assemblyName: DOTweenPro.dll
+    namespaceName: DG.Tweening
+    className: DOTweenVisualManager
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: b5d3eb98b0fcb2f64ab9ecfcc39c7f80
+    assemblyName: DOTweenPro.Scripts.dll
+    namespaceName: DG.Tweening
+    className: DOTweenAnimation
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -541,6 +579,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TurnEndButton
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -667,13 +711,7 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: TurnEndButton
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/sung9/Downloads/turn&phase&deck.apk
+  playerPath: C:/Users/sung9/Downloads/card_bugfix&cost.apk

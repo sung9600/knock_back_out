@@ -40,11 +40,11 @@
      <Compile Include="Assets\Scripts\05Util\Define.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\06Deck&amp;Hand\Cards.cs" />
-     <Compile Include="Assets\Scripts\04UI\CameraSet.cs" />
      <Compile Include="Assets\Scripts\03Turns&amp;Phases\01MapGimmik.cs" />
      <Compile Include="Assets\Scripts\03Turns&amp;Phases\03EnemyMove.cs" />
      <Compile Include="Assets\Scripts\01Manager\StageManager.cs" />
      <Compile Include="Assets\Scripts\01Manager\TurnManager.cs" />
+     <Compile Include="Assets\Scripts\04UI\Cost.cs" />
      <Compile Include="Assets\Scripts\03Turns&amp;Phases\Turns.cs" />
      <Compile Include="Assets\Scripts\01Manager\UIManager.cs" />
      <Compile Include="Assets\Auto Letterbox\ForceCameraRatio.cs" />
@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\01Manager\MapManager.cs" />
      <Compile Include="Assets\Scripts\06Deck&amp;Hand\DeckSystem.cs" />
      <Compile Include="Assets\Scripts\03Turns&amp;Phases\04PlayerPhase.cs" />
+     <Compile Include="Assets\Scripts\04UI\TurnEndButton.cs" />
      <Compile Include="Assets\Scripts\02Characters\Enemy.cs" />
      <Compile Include="Assets\Scripts\01Manager\InputManager.cs" />
      <Compile Include="Assets\Scripts\02Characters\Characters.cs" />
@@ -61,7 +62,7 @@
      <Compile Include="Assets\Scripts\04UI\Buttons.cs" />
      <Compile Include="Assets\Scripts\04UI\MoveButtons.cs" />
      <Compile Include="Assets\Scripts\03Turns&amp;Phases\02DrawPhase.cs" />
-     <Compile Include="Assets\Scripts\04UI\TurnEndButton.cs" />
+     <Compile Include="Assets\Scripts\04UI\RadialLayout.cs" />
      <None Include="Assets\Imports\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Imports\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -296,11 +297,17 @@
     <Reference Include="UnityEditor.UnityConnectModule">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="DemiLib">
+        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+    </Reference>
     <Reference Include="DOTween">
         <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -670,6 +677,10 @@
     <ProjectReference Include="Unity.VisualStudio.Editor.csproj">
       <Project>{454a1f5c-90bc-10f1-15c1-b1b33c43eebe}</Project>
       <Name>Unity.VisualStudio.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="DOTweenPro.Scripts.csproj">
+      <Project>{d203cf71-42a3-5d24-6117-d29b2aee4cd7}</Project>
+      <Name>DOTweenPro.Scripts</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Timeline.Editor.csproj">
       <Project>{8973a3dc-1e94-ed8b-9751-e71c513b2d31}</Project>

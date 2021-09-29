@@ -455,6 +455,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61a56fc4c569eb44b2e34f4d1e4db43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardInfo:
+    name: 0
+    type: 6
+    Cost: 1
+    Range: 3
+    ID: 0
   texts:
   - {fileID: 8874563254576073243}
   - {fileID: 8874563253757320163}
