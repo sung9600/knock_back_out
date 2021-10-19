@@ -260,8 +260,8 @@
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Manipulators\TimeAreaAutoPanner.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Signals\TreeView\SignalListFactory.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Playables\ControlPlayableInspector.cs" />
-     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\treeview\Manipulator.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Window\TimelineWindow_HeaderGui.cs" />
+     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\treeview\Manipulator.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\inspectors\ClipInspector\ClipInspectorSelectionInfo.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\DirectorStyles.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.8\Editor\Manipulators\AddDelete\AddDeleteItemModeRipple.cs" />
@@ -530,20 +530,32 @@
     <Reference Include="UnityEditor.WindowsStandalone.Extensions">
         <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="DemiLib">
+        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/+Etc/Plugins/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
         <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="DOTweenProEditor">
+        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/+Etc/Plugins/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
+    </Reference>
     <Reference Include="DOTweenEditor">
-        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/+Etc/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiEditor">
+        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/+Etc/Plugins/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
         <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
+        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/+Etc/Plugins/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+        <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Assets/+Etc/Plugins/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
         <HintPath>C:/Users/sung9/Documents/GitHub/knock_back_out/Library/PackageCache/com.unity.collab-proxy@1.5.7/Lib/Editor/PlasticSCM/unityplastic.dll</HintPath>

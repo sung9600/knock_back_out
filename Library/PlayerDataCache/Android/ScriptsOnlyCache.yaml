@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - AutoLetterbox.ForceCameraRatio
     - Cards
     - Cost
+    - Crowler
     - DeckSystem
     - MapManager
     - MoveButtons
@@ -15,6 +16,8 @@ ScriptsOnlyBuild:
     - UIManager
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
+    DOTweenPro.Scripts.dll:
+    - DG.Tweening.DOTweenAnimation
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -31,12 +34,18 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
-    UnityEditor.UI.dll:
-    - UnityEditor.UI.ImageEditor
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -62,7 +71,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -89,33 +104,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2478}
     - Class: 114
-      Script: {instanceID: 2596}
+      Script: {instanceID: 2598}
     - Class: 114
-      Script: {instanceID: 2614}
+      Script: {instanceID: 2616}
     - Class: 114
-      Script: {instanceID: 2676}
+      Script: {instanceID: 2678}
     - Class: 114
-      Script: {instanceID: 2750}
+      Script: {instanceID: 2752}
     - Class: 114
-      Script: {instanceID: 2784}
+      Script: {instanceID: 2786}
     - Class: 114
-      Script: {instanceID: 2866}
+      Script: {instanceID: 2868}
     - Class: 114
-      Script: {instanceID: 3186}
+      Script: {instanceID: 3030}
     - Class: 114
-      Script: {instanceID: 3232}
+      Script: {instanceID: 3188}
     - Class: 114
-      Script: {instanceID: 3272}
+      Script: {instanceID: 3234}
     - Class: 114
-      Script: {instanceID: 3504}
+      Script: {instanceID: 3274}
     - Class: 114
-      Script: {instanceID: 3822}
+      Script: {instanceID: 3508}
     - Class: 114
-      Script: {instanceID: 4072}
+      Script: {instanceID: 3826}
     - Class: 114
-      Script: {instanceID: 4118}
+      Script: {instanceID: 4076}
     - Class: 114
-      Script: {instanceID: 4428}
+      Script: {instanceID: 4122}
+    - Class: 114
+      Script: {instanceID: 4160}
+    - Class: 114
+      Script: {instanceID: 4434}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -269,7 +288,7 @@ ScriptsOnlyBuild:
     className: EnumerableTestState
   - hash:
       serializedVersion: 2
-      Hash: 8588bbba1e2df9b2e5c3ca59f5687706
+      Hash: 6fd6286cc4637ae92ebe17008d30a4d4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StageManager
@@ -327,6 +346,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: parabola
   - hash:
       serializedVersion: 2
       Hash: 8921e04340500f372208df93c45e9304
@@ -405,12 +430,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMesh
-  - hash:
-      serializedVersion: 2
-      Hash: 8921e04340500f372208df93c45e9304
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerSetTurn
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -509,7 +528,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 9d96326155ed071034ada50ab8e52f72
+      Hash: cdeecdae6e6de55891f43bbccc61ef8e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MapManager
@@ -533,10 +552,16 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
-      Hash: 7c0606e16d2dedc5c2e7d83b45be8be1
+      Hash: ca7e000fb35ea03424edbe5385f0f321
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DeckSystem
+  - hash:
+      serializedVersion: 2
+      Hash: 8aa1ed290fcadfd5c9eda58fd61e2d62
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Warrior_Base
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -599,12 +624,6 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 8e41aaf020ff5215824a9ed9f89cb874
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Enemy
-  - hash:
-      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -665,7 +684,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: 8e41aaf020ff5215824a9ed9f89cb874
+      Hash: 6a38d1b2cc403681e484607bdb2a5b12
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Characters
@@ -677,10 +696,16 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 8e41aaf020ff5215824a9ed9f89cb874
+      Hash: e74ad199771d99871ebf84a9d70bee22
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: 8aa1ed290fcadfd5c9eda58fd61e2d62
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Crowler
   - hash:
       serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
@@ -714,4 +739,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/sung9/Downloads/card_bugfix&cost.apk
+  playerPath: C:/Users/sung9/Downloads/melee_1.apk
