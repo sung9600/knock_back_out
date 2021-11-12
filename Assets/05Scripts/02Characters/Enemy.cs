@@ -16,6 +16,9 @@ public abstract class Enemy : Characters
     [SerializeField]
     protected List<Characters> targets = new List<Characters>();
 
+    [SerializeField]
+    protected List<(Pos, int)> candid_pos = new List<(Pos, int)>();
+
     protected enum type
     {
         warrior,

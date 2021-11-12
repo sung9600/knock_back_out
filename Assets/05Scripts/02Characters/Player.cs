@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : Characters
 {
     public GameObject bullet_prefab;
-    public Cards usedcard;
+    public CardUI usedcard;
     public int remain_move;
     public int moverange;
     public int total_card = 5;
@@ -20,7 +20,7 @@ public class Player : Characters
         }
 
     }
-    public void useCard(Cards info)
+    public void useCard(CardUI info)
     {
         List<Pos> tiles = new List<Pos>();
         usedcard = info;

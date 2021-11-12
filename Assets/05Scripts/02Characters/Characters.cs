@@ -24,6 +24,15 @@ public class Pos
         return new Pos(first.x + second.x, first.y + second.y);
     }
 
+    public static Pos operator *(Pos pos, int i)
+    {
+        return new Pos(pos.x * i, pos.y * i);
+    }
+    public static Pos operator *(int i, Pos pos)
+    {
+        return new Pos(pos.x * i, pos.y * i);
+    }
+
     public static bool equals(Pos first, Pos second)
     {
         return (first.x == second.x) && (first.y == second.y);
@@ -118,20 +127,24 @@ public class Characters : MonoBehaviour
         int ny = curpos.y + direction.y;
         // 일단 밀고 밀리는 위치가 유효한지 판단할까?
         Vector3 targetPos = MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(new Vector3Int(nx, ny, 0)) + Constants.character_tile_offset;
-        transform.DOMove(targetPos, 0.5f, false);
-        if (!MapManager.checkCantGoTile(nx, ny, stat.moveType == moveType.ground))
+        transform.DOMove(targetPos, 0.5f, false)
+        .OnComplete(() =>
         {
-            MapManager.mapManager.map[curpos.x, curpos.y] &= 0x3fffffff;
-            curpos.x = nx;
-            curpos.y = ny;
-            ChangeMapByte();
-        }
-        else
-        {
-            // 물타일 or 충돌
-            targetPos = MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(new Vector3Int(curpos.x, curpos.y, 0));
-            transform.DOMove(targetPos, 0.2f, false);
-        }
+
+            if (!MapManager.checkCantGoTile(nx, ny, stat.moveType == moveType.ground))
+            {
+                MapManager.mapManager.map[curpos.x, curpos.y] &= 0x3fffffff;
+                curpos.x = nx;
+                curpos.y = ny;
+                ChangeMapByte();
+            }
+            else
+            {
+                // 물타일 or 충돌
+                targetPos = MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(new Vector3Int(curpos.x, curpos.y, 0)) + Constants.character_tile_offset;
+                transform.DOMove(targetPos, 0.2f, false);
+            }
+        });
     }
 
 

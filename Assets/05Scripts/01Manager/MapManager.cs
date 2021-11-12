@@ -30,7 +30,7 @@ public class MapManager : MonoBehaviour
     }
     [SerializeField]
     private Array2d<TileBase>[] map_tiles;
-    // 포자 풀 돌 물 base1 base2 navigation warning
+    // 포자 풀 돌 물 base1 base2 navigation warning enemy_coming
     // smoke front  8
     // smoke back   8 
     // fire front   8
@@ -50,9 +50,24 @@ public class MapManager : MonoBehaviour
     // characters
     // 좌하
     // 우상
-    public int[,] map;
+    public int[,] map { get; set; }
+
+    public static int groundInfo(int x, int y)
+    {
+        return mapManager.map[x, y] & 0x0000ffff;
+    }
+    public static int groundInfo(Pos pos)
+    {
+        return mapManager.map[pos.x, pos.y] & 0x0000ffff;
+    }
 
     public Dictionary<(int, int), IEnumerator> tileanims = new Dictionary<(int, int), IEnumerator>();
+    public static IEnumerator returnTileAnims(int x, int y)
+    {
+        IEnumerator result;
+        mapManager.tileanims.TryGetValue((x, y), out result);
+        return result;
+    }
 
     public void drawBases(int[,] map)
     {
@@ -95,6 +110,7 @@ public class MapManager : MonoBehaviour
 
     public void update_tileanims(int pos_x, int pos_y, int version)
     {
+        // version 0: fire 1: smoke
         IEnumerator effect_coroutine = effect(pos_x, pos_y, version);
         tileanims.Add((pos_x, pos_y), effect_coroutine);
         StartCoroutine(effect_coroutine);
@@ -105,13 +121,13 @@ public class MapManager : MonoBehaviour
         map = new int[Constants.mapWidth, Constants.mapHeight];
         MapGenerator.makeMap(map);
         drawBases(map);
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                Debug.Log(i + "," + j + ":" + tilemaps[0].GetCellCenterWorld(new Vector3Int(i, j, 0)));
-            }
-        }
+        // for (int i = 0; i < 5; i++)
+        // {
+        //     for (int j = 0; j < 5; j++)
+        //     {
+        //         Debug.Log(i + "," + j + ":" + tilemaps[0].GetCellCenterWorld(new Vector3Int(i, j, 0)));
+        //     }
+        // }
     }
 
     #region navigation
@@ -203,7 +219,7 @@ public class MapManager : MonoBehaviour
     }
     public static List<Pos> getPath(int startx, int starty, int endx, int endy, bool groundUnit)
     {
-        if (startx == endx && starty == endy) return null;
+        if (startx == endx && starty == endy) return new List<Pos>();
         int[,] map = mapManager.map;
         Node[,] map2d = new Node[Constants.mapHeight, Constants.mapWidth];
 
@@ -349,22 +365,29 @@ public class MapManager : MonoBehaviour
         return true;
     }
 
+    public static bool isEmptyTile(Pos pos)
+    {
+        if ((mapManager.map[pos.x, pos.y] & 0x40000000) > 0) { return false; }
+        return true;
+    }
+
+
     public static bool isPassibleTile(int x, int y)
     {
-        if (mapManager.map[x, y] == (int)tileType.rock || mapManager.map[x, y] == (int)tileType.water)
+        if (groundInfo(x, y) == (int)tileType.rock || groundInfo(x, y) == (int)tileType.water)
             return false;
         return true;
     }
 
     public static void Push4direction(Pos origin, Pos dir)
     {
-        for (int i = 0; i < 5; i++)
-        {
-            for (int j = 0; j < 5; j++)
-            {
-                Debug.Log(i + " " + j + " :" + mapManager.map[i, j]);
-            }
-        }
+        // for (int i = 0; i < 5; i++)
+        // {
+        //     for (int j = 0; j < 5; j++)
+        //     {
+        //         Debug.Log(i + " " + j + " :" + mapManager.map[i, j]);
+        //     }
+        // }
         Debug.Log("origin : " + origin);
         for (int i = 0; i < 4; i++)
         {
@@ -377,19 +400,23 @@ public class MapManager : MonoBehaviour
                 Characters target = StageManager.stageManager.GetCharacterByVector3Int(new Vector3Int(nx, ny, 0));
                 Debug.Log("try push " + target.name);
                 target.Pushedto(new Pos(Constants.dx[i], Constants.dy[i]));
-                // if (!checkCantGoTile(nx + Constants.dx[i], ny + Constants.dy[i], target.stat.moveType == moveType.ground))
-                // {
-                //     Debug.Log("push to " + new Pos(nx + Constants.dx[i], ny + Constants.dy[i]));
-                //     Debug.Log(target.gameObject.name);
-                //     target.curpos = new Pos(nx + Constants.dx[i], ny + Constants.dy[i]);
-                //     target.transform.position = mapManager.tilemaps[0].GetCellCenterWorld(new Vector3Int(nx + Constants.dx[i], ny + Constants.dy[i], 0)) + Constants.character_tile_offset;
-                //     target.GetHit();
-                // }
-                // else
-                // {
-                //     // 충돌 or 물타일 떨어짐
-                // }
             }
+        }
+    }
+
+    public static void Push(Pos from, Pos dir)
+    {
+        Pos to = from + dir;
+        if (!checkWidthHeight(to))
+        {
+            Debug.Log("pushed to out of boundary");
+            return;
+        }
+        if (!isEmptyTile(to))
+        {
+            Debug.Log("pushed to not empty tile");
+            Characters target = StageManager.stageManager.GetCharacterByVector3Int(new Vector3Int(to.x, to.y, 0));
+            target.Pushedto(dir);
         }
     }
 

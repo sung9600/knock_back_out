@@ -8,10 +8,9 @@ public class TurnEndButton : Buttons
     public override void OnClick()
     {
         if (TurnManager.turnManager.phase != phase.player_turn) return;
-        TurnManager.turnManager.turns[TurnManager.turnManager.turnIndex].index++;
+        TurnManager.turnManager.turns[TurnManager.turnManager.turnIndex].index = 4;
         MoveButtons.nav_on = false;
         MapManager.mapManager.clearNavTiles();
         player_turn_done = true;
-        player_turn_done = false;
     }
 }

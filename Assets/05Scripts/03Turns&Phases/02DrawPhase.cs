@@ -27,15 +27,15 @@ public class DrawPhase : Phases
             if (i < 5)
             {
                 GameObject card = Instantiate(StageManager.stageManager.card_Prefab, StageManager.stageManager.hand1);
-                card.GetComponent<Cards>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
-                card.GetComponent<Cards>().cardInfoUI();
+                card.GetComponent<CardUI>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
+                card.GetComponent<CardUI>().cardInfoUI();
 
             }
             else
             {
                 GameObject card = Instantiate(StageManager.stageManager.card_Prefab, StageManager.stageManager.hand2);
-                card.GetComponent<Cards>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
-                card.GetComponent<Cards>().cardInfoUI();
+                card.GetComponent<CardUI>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
+                card.GetComponent<CardUI>().cardInfoUI();
             }
 
             // StageManager.stageManager.hand1.GetChild(i).GetComponent<Cards>().cardInfo

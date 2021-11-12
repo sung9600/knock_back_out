@@ -10,9 +10,9 @@ public class MoveButtons : Buttons
 
         if (TurnManager.turnManager.phase != phase.player_turn) return;
         if (StageManager.stageManager.GetPlayer().remain_move <= 0) return;
-        if (Cards.clicked_card == -1)
+        if (CardUI.clicked_card == -1)
         {
-            if (!nav_on && !Cards.usingcard)
+            if (!nav_on && !CardUI.usingcard)
             {
                 if (StageManager.stageManager.GetPlayer().status != Character_status.waiting)
                     return;

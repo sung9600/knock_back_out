@@ -21,8 +21,6 @@ public class Turns : ScriptableObject
         phases[index].OnStartPhase();
         if (phases[index].IsComplete())
         {
-            //Debug.Log(string.Format("phase {0} done", index));
-            //Debug.Log(string.Format("turns: {0}", TurnManager.turnManager.phase));
             phases[index].OnEndPhase();
             index++;
             if (index > phases.Length - 1)

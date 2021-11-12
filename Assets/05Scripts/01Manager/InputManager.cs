@@ -36,7 +36,7 @@ public class InputManager
             int y = gridMousePos.y;
             gridMousePos.z = 0;
             Player player = StageManager.stageManager.GetPlayer();
-            if (!Cards.usingcard)
+            if (!CardUI.usingcard)
             {
                 // 이동클릭
                 // 5x5그리드 안 클릭인경우
@@ -120,8 +120,8 @@ public class InputManager
                                 }
                                 MapManager.mapManager.update_tileanims(nx, ny, 1);
                             }
-                            Cards.usingcard = false;
-                            Cards.clicked_card = -1;
+                            CardUI.usingcard = false;
+                            CardUI.clicked_card = -1;
                             MapManager.mapManager.clearNavTiles();
                             MoveButtons.nav_on = false;
                             player.usedcard.cardInfo.type = CardType.end;
@@ -141,8 +141,8 @@ public class InputManager
                             bullet.AddComponent<parabola>();
                             bullet.GetComponent<parabola>().shoot(new Vector3Int(gridMousePos.x - 5, gridMousePos.y - 5, 0));
                             //StageManager.stageManager.mapManager.update_tileanims((x - 5) * 5 + (y - 5), 1);
-                            Cards.usingcard = false;
-                            Cards.clicked_card = -1;
+                            CardUI.usingcard = false;
+                            CardUI.clicked_card = -1;
                             MapManager.mapManager.clearNavTiles();
                             MoveButtons.nav_on = false;
                             player.usedcard.cardInfo.type = CardType.end;
@@ -158,8 +158,8 @@ public class InputManager
                             player.status = Character_status.attacking;
                             player.GetAnimator().SetTrigger("Attack");
                             MapManager.mapManager.update_tileanims((x - 5), (y - 5), 1);
-                            Cards.usingcard = false;
-                            Cards.clicked_card = -1;
+                            CardUI.usingcard = false;
+                            CardUI.clicked_card = -1;
                             MapManager.mapManager.clearNavTiles();
                             MoveButtons.nav_on = false;
                             player.usedcard.cardInfo.type = CardType.end;

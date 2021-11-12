@@ -21,20 +21,26 @@ public class EnemyAtk : Phases
                 return false;
             }
         }
-        int i = 1;
-        while (i > 0)
+
+        for (int i = 0; i < 5; i++)
         {
-            int x = Random.Range(0, Constants.mapHeight);
-            int y = Random.Range(0, Constants.mapHeight);
-            if (!MapManager.checkCantGoTile(x, y, true))
+            for (int j = 0; j < 5; j++)
             {
-                int count = StageManager.stageManager.getEnemy_Prefabs().Count;
-                int index = Random.Range(0, count);
-                GameObject go = Instantiate(StageManager.stageManager.getEnemy_Prefab_byIndex(index)
-                    , Constants.character_tile_offset + MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(new Vector3Int(x, y, 0)), Quaternion.identity);
-                go.GetComponent<Enemy>().init(new Pos(x, y));
-                i--;
+                Vector3Int pos = new Vector3Int(i, j, 0);
+                if (MapManager.mapManager.GetTilemap(3).GetTile(pos) == MapManager.mapManager.GetTile(0, 8))
+                {
+                    MapManager.mapManager.GetTilemap(3).SetTile(pos, null);
+
+                    int count = StageManager.stageManager.getEnemy_Prefabs().Count;
+                    int index = Random.Range(0, count);
+                    GameObject go = Instantiate(StageManager.stageManager.getEnemy_Prefab_byIndex(index)
+                        , Constants.character_tile_offset + MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(pos), Quaternion.identity);
+                    go.GetComponent<Enemy>().init(new Pos(i, j));
+                    i--;
+                    return false;
+                }
             }
+
         }
         enemies = FindObjectsOfType<Enemy>();
         foreach (Enemy enemy in enemies)
