@@ -6,15 +6,13 @@ public class Artillery_Base : Enemy
 {
     public override void init(Pos pos)
     {
-        Debug.Log("art init");
         targets.Add(StageManager.stageManager.GetPlayer());
         curpos = pos;
         ChangeMapByte();
-        Debug.Log(curpos.x + "," + curpos.y + ":" + MapManager.mapManager.map[curpos.x, curpos.y]);
+        //(curpos.x + "," + curpos.y + ":" + MapManager.mapManager.map[curpos.x, curpos.y]);
     }
     public override void SetTarget()
     {
-        Debug.Log("art settarget");
         atk_target = null;
         atk_dir = null;
         status = Character_status.waiting;
@@ -49,7 +47,6 @@ public class Artillery_Base : Enemy
         {
             if (curpos.x == element.Item1.x && curpos.y == element.Item1.y)
             {
-                Debug.Log("art " + element.Item1.x + "," + element.Item1.y + " already");
                 status = Character_status.attacking;
                 final_pos = curpos;
                 final_path = null;
@@ -60,7 +57,7 @@ public class Artillery_Base : Enemy
             if (path == null)
             {
                 // 경로없음
-                Debug.Log("null path");
+                //Debug.Log("null path");
                 continue;
             }
             if (path.Count <= stat.moverange + 1)
@@ -104,14 +101,14 @@ public class Artillery_Base : Enemy
         atk_dir = atk_target.curpos - curpos;
         /// 이거를 타일로 표시하는거 말고 indicator ( 화살표? )로 표시할수 있도록 바꿔야할듯
         warning_pos = curpos + atk_dir;
-        MapManager.mapManager.GetTilemap(3).SetTile(new Vector3Int(atk_target.curpos.x, atk_target.curpos.y, 0), MapManager.mapManager.GetTile(0, 7));
+        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(atk_target.curpos.x, atk_target.curpos.y, 0), MapManager.mapManager.GetTile(0, 7));
     }
     public override void Skill() { Debug.Log("artskill"); }
 
     public virtual void attack()
     {
         MapManager.Push4direction(warning_pos, atk_dir);
-        MapManager.mapManager.GetTilemap(3).SetTile(new Vector3Int(warning_pos.x, warning_pos.y, 0), null);
+        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(warning_pos.x, warning_pos.y, 0), null);
         if (!turn_done) turn_done = true;
     }
 }

@@ -22,15 +22,14 @@ public class InputManager
             // ui click 예외처리
             if (EventSystem.current.IsPointerOverGameObject())
             {
-                //Debug.Log("input1");
+                Debug.Log("ui click");
                 return;
             }
             if (TurnManager.turnManager.phase != phase.player_turn)
             {
-                //Debug.Log("input2");
+                Debug.Log("not player turn");
                 return;
             }
-            // 처음 캐릭터 배치 예외처리
             Vector3Int gridMousePos = GetGridPos();
             int x = gridMousePos.x;
             int y = gridMousePos.y;
@@ -39,6 +38,7 @@ public class InputManager
             if (!CardUI.usingcard)
             {
                 // 이동클릭
+                Debug.Log("input for moving");
                 // 5x5그리드 안 클릭인경우
                 if (x >= 5 && x < 5 + Constants.mapHeight && y >= 5 && y < 5 + Constants.mapWidth)
                 {
@@ -47,7 +47,7 @@ public class InputManager
                     {
                         // 플레이어 이동범위 표시한거 지우고 클릭이 유효하면 해당위치로 이동
                         // tilemap 범위가 맵 밖인경우
-                        if (MapManager.mapManager.GetTilemap(2).GetTile(gridMousePos - new Vector3Int(5, 5, 0)) != null)
+                        if (MapManager.mapManager.GetTilemap(1).GetTile(gridMousePos - new Vector3Int(5, 5, 0)) != null)
                         {
                             List<Pos> path = MapManager.getPath(player.curpos.x, player.curpos.y, x - 5, y - 5, player.stat.moveType == moveType.ground);
                             if (path != null)
@@ -73,7 +73,7 @@ public class InputManager
                 {
                     case CardType.Attack_direct:
                         // 직사공격
-                        if (MapManager.mapManager.GetTilemap(2).GetTile(gridMousePos - new Vector3Int(5, 5, 0)) != null)
+                        if (MapManager.mapManager.GetTilemap(1).GetTile(gridMousePos - new Vector3Int(5, 5, 0)) != null)
                         {
                             Pos direction = new Pos(x - 5, y - 5) - player.curpos;
                             bool up = direction.x + direction.y > 0;
@@ -129,7 +129,7 @@ public class InputManager
                         break;
                     case CardType.Attack_indirect:
                         // 곡사공격
-                        if (MapManager.mapManager.GetTilemap(2).GetTile(gridMousePos - new Vector3Int(5, 5, 0)) != null)
+                        if (MapManager.mapManager.GetTilemap(1).GetTile(gridMousePos - new Vector3Int(5, 5, 0)) != null)
                         {
                             Pos direction = new Pos(x - 5, y - 5) - player.curpos;
                             bool left = direction.x < 0 || (direction.x == 0 && direction.y > 0);
@@ -150,7 +150,7 @@ public class InputManager
                         break;
                     case CardType.Attack_near:
                         // 근접공격
-                        if (MapManager.mapManager.GetTilemap(2).GetTile(gridMousePos - new Vector3Int(5, 5, 0)) != null)
+                        if (MapManager.mapManager.GetTilemap(1).GetTile(gridMousePos - new Vector3Int(5, 5, 0)) != null)
                         {
                             Pos direction = new Pos(x - 5, y - 5) - player.curpos;
                             bool left = direction.x < 0 || (direction.x == 0 && direction.y > 0);

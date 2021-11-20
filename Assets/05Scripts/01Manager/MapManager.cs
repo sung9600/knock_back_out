@@ -23,14 +23,14 @@ public class MapManager : MonoBehaviour
         }
     }
     [SerializeField]
-    private Tilemap[] tilemaps;// base_tile, floor_tile, nav_tile, warning_tile, env_back_tile, env_front_tile;
+    private Tilemap[] tilemaps;// base_tile, nav_tile, warning_tile, env_back_tile, env_front_tile;
     public Tilemap GetTilemap(int idx)
     {
         return tilemaps[idx];
     }
     [SerializeField]
     private Array2d<TileBase>[] map_tiles;
-    // 포자 풀 돌 물 base1 base2 navigation warning enemy_coming
+    // 포자 풀 돌 물 base1 navigation warning enemy_coming
     // smoke front  8
     // smoke back   8 
     // fire front   8
@@ -80,12 +80,9 @@ public class MapManager : MonoBehaviour
                 Vector3 gridpos = getGridPosition(pos);
                 if (map[i, j] != (int)tileType.water)
                 {
-                    if (Random.Range(0, 1f) > 0.5f)
-                        tilemaps[0].SetTile(pos, map_tiles[0].data[4]);
-                    else
-                        tilemaps[0].SetTile(pos, map_tiles[0].data[5]);
+                    tilemaps[0].SetTile(pos, map_tiles[0].data[4]);
                     if (map[i, j] != (int)tileType.baseTile)
-                        tilemaps[1].SetTile(pos, map_tiles[0].data[map[i, j]]);
+                        tilemaps[0].SetTile(pos, map_tiles[0].data[map[i, j]]);
                 }
                 else
                 {
@@ -102,8 +99,8 @@ public class MapManager : MonoBehaviour
         while (true)
         {
             idx %= map_tiles[2].data.Length;
-            tilemaps[5].SetTile(new Vector3Int(x, y, 0), map_tiles[version * 2 + 1].data[idx]);
-            tilemaps[4].SetTile(new Vector3Int(x, y, 0), map_tiles[version * 2 + 2].data[idx++]);
+            tilemaps[4].SetTile(new Vector3Int(x, y, 0), map_tiles[version * 2 + 1].data[idx]);
+            tilemaps[3].SetTile(new Vector3Int(x, y, 0), map_tiles[version * 2 + 2].data[idx++]);
             yield return new WaitForSeconds(0.2f);
         }
     }
@@ -329,7 +326,7 @@ public class MapManager : MonoBehaviour
         {
             for (int j = 0; j < Constants.mapWidth; j++)
             {
-                tilemaps[2].SetTile(new Vector3Int(i, j, 0), null);
+                tilemaps[1].SetTile(new Vector3Int(i, j, 0), null);
             }
         }
     }
@@ -381,24 +378,17 @@ public class MapManager : MonoBehaviour
 
     public static void Push4direction(Pos origin, Pos dir)
     {
-        // for (int i = 0; i < 5; i++)
-        // {
-        //     for (int j = 0; j < 5; j++)
-        //     {
-        //         Debug.Log(i + " " + j + " :" + mapManager.map[i, j]);
-        //     }
-        // }
-        Debug.Log("origin : " + origin);
+        //Debug.Log("origin : " + origin);
         for (int i = 0; i < 4; i++)
         {
             int nx = origin.x + Constants.dx[i];
             int ny = origin.y + Constants.dy[i];
-            Debug.Log(nx + " " + ny);
+            //Debug.Log(nx + " " + ny);
             if (!checkWidthHeight(nx, ny)) continue;
             if (!isEmptyTile(nx, ny))
             {
                 Characters target = StageManager.stageManager.GetCharacterByVector3Int(new Vector3Int(nx, ny, 0));
-                Debug.Log("try push " + target.name);
+                //Debug.Log("try push " + target.name);
                 target.Pushedto(new Pos(Constants.dx[i], Constants.dy[i]));
             }
         }
@@ -409,12 +399,12 @@ public class MapManager : MonoBehaviour
         Pos to = from + dir;
         if (!checkWidthHeight(to))
         {
-            Debug.Log("pushed to out of boundary");
+            //Debug.Log("pushed to out of boundary");
             return;
         }
         if (!isEmptyTile(to))
         {
-            Debug.Log("pushed to not empty tile");
+            //Debug.Log("pushed to not empty tile");
             Characters target = StageManager.stageManager.GetCharacterByVector3Int(new Vector3Int(to.x, to.y, 0));
             target.Pushedto(dir);
         }

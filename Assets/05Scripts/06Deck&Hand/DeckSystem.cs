@@ -10,7 +10,7 @@ public class DeckSystem : MonoBehaviour
     public List<CardInfo> hand = new List<CardInfo>();
     public List<CardInfo> usedCards = new List<CardInfo>();
 
-    public Queue<CardInfo> deck = new Queue<CardInfo>();
+    public List<CardInfo> deck = new List<CardInfo>();
 
     private void Awake()
     {
@@ -19,17 +19,13 @@ public class DeckSystem : MonoBehaviour
     }
     private void Start()
     {
+
         for (int i = 0; i < 30; i++)
         {
             CardInfo cardInfo = new CardInfo(0);
             usedCards.Add(cardInfo);
         }
-        ShuffleDeck();
-        // for (int i = 0; i < hand.Count; i++)
-        // {
-        //     handGO[i].cardInfo = hand[i];
-        //     handGO[i].gameObject.SetActive(true);
-        // }
+        //ShuffleDeck();
     }
 
     public void ShuffleDeck()
@@ -37,8 +33,9 @@ public class DeckSystem : MonoBehaviour
         // used -> deckTemp + deckTemp shuffle + deckTemp -> hand
         deckTemp = usedCards.ToList();
         usedCards.Clear();
-        int n = deckTemp.Count - 1;
-        for (int i = n; i >= 0; i--)
+        int n = deckTemp.Count;
+        Debug.Log("n:" + n);
+        for (int i = n - 1; i > 0; i--)
         {
             int random = UnityEngine.Random.Range(0, i);
             CardInfo temp = deckTemp[i];
@@ -47,14 +44,16 @@ public class DeckSystem : MonoBehaviour
         }
         for (int i = 0; i < n; i++)
         {
-            deck.Enqueue(deckTemp[i]);
+            deck.Add(deckTemp[i]);
         }
         deckTemp.Clear();
     }
 
     public CardInfo DrawCardFromDeck()
     {
-        CardInfo temp = deck.Dequeue();
+        if (deck.Count == 0) ShuffleDeck();
+        CardInfo temp = deck[0];
+        deck.RemoveAt(0);
         hand.Add(temp);
         //Debug.Log(temp.ID);
         return temp;
@@ -69,6 +68,25 @@ public class DeckSystem : MonoBehaviour
                 hand.Remove(hand[i]);
                 break;
             }
+        }
+    }
+
+    public void clearHand()
+    {
+        Debug.Log("clearHand");
+        int count = StageManager.stageManager.hand1.childCount;
+        for (int i = 0; i < count; i++)
+        {
+            CardInfo card = StageManager.stageManager.hand1.GetChild(i).GetComponent<CardUI>().cardInfo;
+            toUsedCard(card);
+            Destroy(StageManager.stageManager.hand1.GetChild(i).gameObject);
+        }
+        count = StageManager.stageManager.hand2.childCount;
+        for (int i = 0; i < count; i++)
+        {
+            CardInfo card = StageManager.stageManager.hand2.GetChild(i).GetComponent<CardUI>().cardInfo;
+            toUsedCard(card);
+            Destroy(StageManager.stageManager.hand2.GetChild(i).gameObject);
         }
     }
 

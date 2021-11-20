@@ -8,14 +8,14 @@ public class Player : Characters
     public CardUI usedcard;
     public int remain_move;
     public int moverange;
-    public int total_card = 5;
+    public int total_card = 10;
     public void showNav(List<Pos> tiles)
     {
         foreach (var a in tiles)
         {
             int x = a.x;
             int y = a.y;
-            MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(x, y, 0),
+            MapManager.mapManager.GetTilemap(1).SetTile(new Vector3Int(x, y, 0),
                 MapManager.mapManager.GetTile(0, 6));
         }
 

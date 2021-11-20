@@ -10,11 +10,13 @@ public class PlayerPhase : Phases
         TurnManager.turnManager.indicator.SetText("player phase");
         TurnManager.turnManager.phase = phase.player_turn;
         remain_move = StageManager.stageManager.GetPlayer().stat.moverange;
+        TurnEndButton.player_turn_done = false;
     }
     public override bool IsComplete()
     {
         if (!TurnEndButton.player_turn_done) return false;
         TurnEndButton.player_turn_done = false;
+
         return true;
     }
 }

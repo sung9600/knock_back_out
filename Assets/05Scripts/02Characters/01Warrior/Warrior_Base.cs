@@ -6,7 +6,7 @@ public class Warrior_Base : Enemy
 {
     public override void init(Pos pos)
     {
-        Debug.Log("war init");
+        //Debug.Log("war init");
         targets.Add(StageManager.stageManager.GetPlayer());
         curpos = pos;
         ChangeMapByte();
@@ -14,7 +14,7 @@ public class Warrior_Base : Enemy
     }
     public override void SetTarget()
     {
-        Debug.Log("war settarget");
+        //Debug.Log("war settarget");
         atk_target = null;
         atk_dir = null;
         candid_pos.Clear();
@@ -38,7 +38,7 @@ public class Warrior_Base : Enemy
                     continue;
                 }
                 candid_pos.Add((new_pos, targets.IndexOf(target)));
-                Debug.Log("candid_pos add " + new_pos);
+                //Debug.Log("candid_pos add " + new_pos);
             }
         }
         List<Pos> final_path = new List<Pos>();
@@ -47,7 +47,7 @@ public class Warrior_Base : Enemy
             if (curpos.x == element.Item1.x && curpos.y == element.Item1.y)
             {
                 // 현재 위치에서 공격가능 예외처리
-                Debug.Log("war " + element.Item1.x + "," + element.Item1.y + " already");
+                //Debug.Log("war " + element.Item1.x + "," + element.Item1.y + " already");
                 final_path = null;
                 atk_target = targets[element.Item2];
                 break;
@@ -56,7 +56,7 @@ public class Warrior_Base : Enemy
             if (path == null)
             {
                 // 경로없는 경우
-                Debug.Log("null path");
+                //Debug.Log("null path");
                 continue;
             }
             if (path.Count <= stat.moverange + 1)
@@ -103,7 +103,7 @@ public class Warrior_Base : Enemy
         atk_dir = atk_target.curpos - curpos;
         /// 이거를 타일로 표시하는거 말고 indicator ( 화살표? )로 표시할수 있도록 바꿔야할듯
         warning_pos = new Pos(curpos.x + atk_dir.x, curpos.y + atk_dir.y);
-        MapManager.mapManager.GetTilemap(3).SetTile(new Vector3Int(curpos.x + atk_dir.x, curpos.y + atk_dir.y, 0), MapManager.mapManager.GetTile(0, 7));
+        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(curpos.x + atk_dir.x, curpos.y + atk_dir.y, 0), MapManager.mapManager.GetTile(0, 7));
     }
 
     public virtual void attack()
@@ -123,12 +123,12 @@ public class Warrior_Base : Enemy
                 // 피격판정
                 character.GetHit();
 
-                Debug.Log(character.name + " hit!!");
+                //Debug.Log(character.name + " hit!!");
                 break;
             }
         }
-        if (MapManager.mapManager.GetTilemap(3).GetTile(new Vector3Int(warning_pos.x, warning_pos.y, 0)) != null)
-            MapManager.mapManager.GetTilemap(3).SetTile(new Vector3Int(warning_pos.x, warning_pos.y, 0), null);
+        if (MapManager.mapManager.GetTilemap(2).GetTile(new Vector3Int(warning_pos.x, warning_pos.y, 0)) != null)
+            MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(warning_pos.x, warning_pos.y, 0), null);
         if (!turn_done) turn_done = true;
 
     }

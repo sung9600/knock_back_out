@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoveButtons : Buttons
 {
     public static bool nav_on = false;
+
+    private void Start()
+    {
+        GetComponent<Image>().alphaHitTestMinimumThreshold = 0.1f;
+    }
     public override void OnClick()
     {
 

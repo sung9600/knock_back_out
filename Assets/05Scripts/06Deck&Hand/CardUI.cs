@@ -11,23 +11,25 @@ public class CardUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
 
     public static int card_num = 0;
     public CardInfo cardInfo;
-    public TextMeshProUGUI[] texts; // name cost info
-    [SerializeField]
     private RectTransform rectTransform;
     public static int clicked_card = -1;
     [SerializeField]
     private Vector3 origin;
     private Quaternion rotation_origin;
     private static Canvas canvas;
+
     public static bool usingcard = false;
+
+    private static Transform canvasParent = null;
+    private static Transform realParent = null;
 
     public void cardInfoUI()
     {
-        texts[0].SetText(cardInfo.name);
-        texts[1].SetText(cardInfo.Cost.ToString());
         if (canvas == null)
             canvas = GameObject.Find("UI").transform.GetChild(0).GetComponent<Canvas>();
         rectTransform = GetComponent<RectTransform>();
+        transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(cardInfo.ID.ToString());
+        canvasParent = GameObject.Find("DefaultUI").transform;
         // 여기에 이미지 + 카드효과 등등 표시하는 기능 추가해야함
     }
 
@@ -35,7 +37,13 @@ public class CardUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
     {
         if (TurnManager.turnManager.phase != phase.player_turn) return;
         if (clicked_card == this.cardInfo.ID)
-            transform.position = Input.mousePosition + new Vector3(0, 250, 0);
+        {
+            //transform.position = Input.mousePosition;// + new Vector3(0, 250, 0);
+            var screenPoint = (Vector3)eventData.position;
+            screenPoint.z = 10.0f;
+            transform.position = Camera.main.ScreenToWorldPoint(screenPoint) + Vector3.up * 2;
+            Debug.Log(transform.position);
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -82,6 +90,7 @@ public class CardUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
 
     private void toOrigin()
     {
+        transform.SetParent(realParent);
         rectTransform.anchoredPosition = origin;
         transform.localScale = new Vector3(1, 1, 1);
         usingcard = false;
@@ -93,12 +102,14 @@ public class CardUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHa
     {
         rotation_origin = rectTransform.rotation;
         origin = rectTransform.localPosition;
+        realParent = transform.parent;
         if (TurnManager.turnManager.phase != phase.player_turn) return;
         if (clicked_card == -1)
         {
             clicked_card = cardInfo.ID;
-            transform.localScale = new Vector3(3, 3, 3);
+            transform.localScale = new Vector3(2, 2, 2);
             rectTransform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.SetParent(canvasParent);
         }
     }
 

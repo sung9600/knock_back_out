@@ -11,9 +11,9 @@ public class DrawPhase : Phases
     }
     public override bool IsComplete()
     {
-        while (DeckSystem.deckSystem.hand.Count != 0)
+        if (DeckSystem.deckSystem.hand.Count != 0)
         {
-            DeckSystem.deckSystem.toUsedCard(DeckSystem.deckSystem.hand[0]);
+            DeckSystem.deckSystem.clearHand();
         }
         int n = StageManager.stageManager.hand1.childCount;
         for (int i = 0; i < n; i++)
@@ -37,13 +37,6 @@ public class DrawPhase : Phases
                 card.GetComponent<CardUI>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
                 card.GetComponent<CardUI>().cardInfoUI();
             }
-
-            // StageManager.stageManager.hand1.GetChild(i).GetComponent<Cards>().cardInfo
-            //     = DeckSystem.deckSystem.DrawCardFromDeck();
-            // StageManager.stageManager.hand1.GetChild(i).gameObject.SetActive(true);
-            // StageManager.stageManager.hand2.GetChild(i).GetComponent<Cards>().cardInfo
-            //     = DeckSystem.deckSystem.DrawCardFromDeck();
-            // StageManager.stageManager.hand2.GetChild(i).gameObject.SetActive(true);
         }
 
         return true;

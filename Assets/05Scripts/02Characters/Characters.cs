@@ -117,7 +117,7 @@ public class Characters : MonoBehaviour
 
     public virtual void Attack_animation()
     {
-        Debug.Log("attack");
+        //Debug.Log("attack");
         animator.SetTrigger("Attack");
     }
 

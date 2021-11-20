@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI cost;
     public void updateCost(int curr, int total)
     {
-        cost.SetText(curr.ToString() + " / " + total.ToString());
+        cost.SetText(curr.ToString());
     }
 
 

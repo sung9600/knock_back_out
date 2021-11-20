@@ -27,9 +27,9 @@ public class EnemyAtk : Phases
             for (int j = 0; j < 5; j++)
             {
                 Vector3Int pos = new Vector3Int(i, j, 0);
-                if (MapManager.mapManager.GetTilemap(3).GetTile(pos) == MapManager.mapManager.GetTile(0, 8))
+                if (MapManager.mapManager.GetTilemap(2).GetTile(pos) == MapManager.mapManager.GetTile(0, 7))
                 {
-                    MapManager.mapManager.GetTilemap(3).SetTile(pos, null);
+                    MapManager.mapManager.GetTilemap(2).SetTile(pos, null);
 
                     int count = StageManager.stageManager.getEnemy_Prefabs().Count;
                     int index = Random.Range(0, count);

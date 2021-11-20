@@ -18,7 +18,6 @@ public class CardInfo
         name = "card" + ID;
         type = CardType.Attack_indirect;
         Cost = 1;
-        //Debug.Log(name);
     }
 
     public CardInfo()

@@ -30,9 +30,9 @@ public class EnemyMove : Phases
             Pos pos = new Pos(x[idx], y[idx]);
             if (!MapManager.checkCantGoTile(pos.x, pos.y, true))
             {
-                Debug.Log("warning at " + pos);
-                MapManager.mapManager.GetTilemap(3).SetTile(new Vector3Int(pos.x, pos.y, 0), MapManager.mapManager.GetTile(0, 8));
-                Debug.Log(MapManager.mapManager.GetTilemap(3).GetTile(new Vector3Int(pos.x, pos.y, 0)));
+                //Debug.Log("warning at " + pos);
+                MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(pos.x, pos.y, 0), MapManager.mapManager.GetTile(0, 7));
+                //Debug.Log(MapManager.mapManager.GetTilemap(2).GetTile(new Vector3Int(pos.x, pos.y, 0)));
                 i--;
             }
             // int x = Random.Range(0, Constants.mapHeight);

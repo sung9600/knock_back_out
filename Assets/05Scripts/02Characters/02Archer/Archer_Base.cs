@@ -7,15 +7,15 @@ public class Archer_Base : Enemy
 
     public override void init(Pos pos)
     {
-        Debug.Log("archer init");
+        //Debug.Log("archer init");
         targets.Add(StageManager.stageManager.GetPlayer());
         curpos = pos;
         ChangeMapByte();
-        Debug.Log(curpos.x + "," + curpos.y + ":" + MapManager.mapManager.map[curpos.x, curpos.y]);
+        //Debug.Log(curpos.x + "," + curpos.y + ":" + MapManager.mapManager.map[curpos.x, curpos.y]);
     }
     public override void SetTarget()
     {
-        Debug.Log("arc settarget");
+        //Debug.Log("arc settarget");
         atk_target = null;
         atk_dir = null;
         List<(Pos, int)> candid_pos = new List<(Pos, int)>();
@@ -44,7 +44,7 @@ public class Archer_Base : Enemy
         {
             if (curpos.x == element.Item1.x && curpos.y == element.Item1.y)
             {
-                Debug.Log("arc " + element.Item1.x + "," + element.Item1.y + " already");
+                //Debug.Log("arc " + element.Item1.x + "," + element.Item1.y + " already");
                 final_path = null;
                 atk_target = targets[element.Item2];
                 break;
@@ -53,7 +53,7 @@ public class Archer_Base : Enemy
             if (path == null)
             {
                 // 경로없음
-                Debug.Log("null path");
+                //Debug.Log("null path");
                 continue;
             }
             if (path.Count <= stat.moverange + 1)

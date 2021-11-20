@@ -7,7 +7,7 @@ public class CrossHair : Artillery_Base
     public override void attack()
     {
         // 밀치기 넣어야하나?
-        MapManager.mapManager.GetTilemap(3).SetTile(new Vector3Int(warning_pos.x, warning_pos.y, 0), null);
+        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(warning_pos.x, warning_pos.y, 0), null);
 
         Pos pos = curpos + atk_dir;
         for (int i = 0; i < 4; i++)

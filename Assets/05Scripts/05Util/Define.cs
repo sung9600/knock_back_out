@@ -57,7 +57,7 @@ static class Constants
     public static int[] dx = { -1, 1, 0, 0 };
     public static int[] dy = { 0, 0, -1, 1 };
 
-    public static Vector3 character_tile_offset { get { return new Vector3(0, 0.7f, 0); } }
+    public static Vector3 character_tile_offset { get { return new Vector3(0, 0.55f, 0); } }
 }
 
 public enum phase
