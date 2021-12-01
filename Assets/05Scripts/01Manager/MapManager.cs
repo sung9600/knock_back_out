@@ -23,7 +23,7 @@ public class MapManager : MonoBehaviour
         }
     }
     [SerializeField]
-    private Tilemap[] tilemaps;// base_tile, nav_tile, warning_tile, env_back_tile, env_front_tile;
+    private Tilemap[] tilemaps;// base_tile, nav_tile, warning_tile, env_back_tile, env_front_tile, path_navigation_tile;
     public Tilemap GetTilemap(int idx)
     {
         return tilemaps[idx];
@@ -35,6 +35,7 @@ public class MapManager : MonoBehaviour
     // smoke back   8 
     // fire front   8
     // fire back    8
+    // move Lines   :  start 4(2 5 7 11) -> 6(25, 27, 57, 112, 511, 711) 
     public TileBase GetTile(int idx1, int idx2)
     {
         return map_tiles[idx1].data[idx2];
@@ -320,13 +321,13 @@ public class MapManager : MonoBehaviour
         return top;
     }
     #endregion
-    public void clearNavTiles()
+    public void clearNavTiles(int index)
     {
         for (int i = 0; i < Constants.mapHeight; i++)
         {
             for (int j = 0; j < Constants.mapWidth; j++)
             {
-                tilemaps[1].SetTile(new Vector3Int(i, j, 0), null);
+                tilemaps[index].SetTile(new Vector3Int(i, j, 0), null);
             }
         }
     }
@@ -407,6 +408,81 @@ public class MapManager : MonoBehaviour
             //Debug.Log("pushed to not empty tile");
             Characters target = StageManager.stageManager.GetCharacterByVector3Int(new Vector3Int(to.x, to.y, 0));
             target.Pushedto(dir);
+        }
+    }
+
+    public static void DrawPath(List<Pos> path)
+    {
+        int count = path.Count;
+        Tilemap path_tilemap = MapManager.mapManager.GetTilemap(5);
+        // 경로 길이가 2개인경우랑 3이상인경우로 나눠야하나?
+        if (path.Count == 2)
+        {
+
+        }
+        else
+        {
+            // 0~1
+            int dir = Pos.getDir(path[0], path[1]);
+            switch (dir)
+            {
+                case 2:
+                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[2]);
+                    break;
+                case 3:
+                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[0]);
+                    break;
+                case 5:
+                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[3]);
+                    break;
+                case 7:
+                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[1]);
+                    break;
+            }
+            // 1~끝-1
+            for (int i = 1; i < count - 1; i++)
+            {
+                dir = Pos.getDir(path[i], path[i - 1]) * Pos.getDir(path[i], path[i + 1]);
+                switch (dir)
+                {
+                    case 6:
+                        mapManager.tilemaps[5].SetTile(new Vector3Int(path[i].x, path[i].y, 0), mapManager.map_tiles[5].data[5]);
+                        break;
+                    case 10:
+                        mapManager.tilemaps[5].SetTile(new Vector3Int(path[i].x, path[i].y, 0), mapManager.map_tiles[5].data[9]);
+                        break;
+                    case 14:
+                        mapManager.tilemaps[5].SetTile(new Vector3Int(path[i].x, path[i].y, 0), mapManager.map_tiles[5].data[6]);
+                        break;
+                    case 15:
+                        mapManager.tilemaps[5].SetTile(new Vector3Int(path[i].x, path[i].y, 0), mapManager.map_tiles[5].data[7]);
+                        break;
+                    case 21:
+                        mapManager.tilemaps[5].SetTile(new Vector3Int(path[i].x, path[i].y, 0), mapManager.map_tiles[5].data[4]);
+                        break;
+                    case 35:
+                        mapManager.tilemaps[5].SetTile(new Vector3Int(path[i].x, path[i].y, 0), mapManager.map_tiles[5].data[8]);
+                        break;
+                }
+            }
+            //끝-1~끝
+            dir = Pos.getDir(path[count - 1], path[count - 2]);
+            switch (dir)
+            {
+                case 2:
+                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[count - 1].x, path[count - 1].y, 0), mapManager.map_tiles[5].data[2]);
+                    break;
+                case 3:
+                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[count - 1].x, path[count - 1].y, 0), mapManager.map_tiles[5].data[0]);
+                    break;
+                case 5:
+                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[count - 1].x, path[count - 1].y, 0), mapManager.map_tiles[5].data[3]);
+                    break;
+                case 7:
+                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[count - 1].x, path[count - 1].y, 0), mapManager.map_tiles[5].data[1]);
+                    break;
+            }
+
         }
     }
 

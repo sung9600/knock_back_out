@@ -48,9 +48,9 @@ public class StageManager : MonoBehaviour
         return null;
     }
 
-
-    public Transform hand1;
-    public Transform hand2;
+    public StageStatus stage = StageStatus.CANNOT_TOUCH;
+    public Transform hand;
+    public GameObject big_Card = null;
     public GameObject card_Prefab;
     private static bool gameStop;
     public bool isgameStopped()
@@ -91,7 +91,7 @@ public class StageManager : MonoBehaviour
         }
         //player = GameObject.Find("Player").GetComponent<Player>();
         Input.multiTouchEnabled = false;
-        Screen.SetResolution(1080, 1920, true, 60);
+        Screen.SetResolution(1920, 1080, true, 60);
         characters = new List<Characters>();
 
         GameObject[] os = Resources.LoadAll<GameObject>("Prefabs");
@@ -106,7 +106,7 @@ public class StageManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        inputManager.onUpdate();
+        inputManager.onLateUpdate();
     }
 
 }

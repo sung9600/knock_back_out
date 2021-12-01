@@ -52,9 +52,10 @@
      <Compile Include="Assets\05Scripts\parabola.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\Turns.cs" />
      <Compile Include="Assets\05Scripts\01Manager\UIManager.cs" />
+     <Compile Include="Assets\05Scripts\04UI\OptionButton.cs" />
      <Compile Include="Assets\05Scripts\04UI\RadialLayout.cs" />
+     <Compile Include="Assets\05Scripts\04UI\HandUI.cs" />
      <Compile Include="Assets\05Scripts\02Characters\03Artillery\Artillery_Base.cs" />
-     <Compile Include="Assets\+Etc\Auto Letterbox\ForceCameraRatio.cs" />
      <Compile Include="Assets\05Scripts\02Characters\02Archer\DoubleTap.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\PlayerSetTurn.cs" />
      <Compile Include="Assets\05Scripts\06Deck&amp;Hand\CardInfo.cs" />
@@ -63,10 +64,12 @@
      <Compile Include="Assets\05Scripts\01Manager\MapManager.cs" />
      <Compile Include="Assets\05Scripts\06Deck&amp;Hand\DeckSystem.cs" />
      <Compile Include="Assets\05Scripts\02Characters\01Warrior\Warrior_Base.cs" />
+     <Compile Include="Assets\05Scripts\06Deck&amp;Hand\CardsPanel.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\04PlayerPhase.cs" />
      <Compile Include="Assets\05Scripts\04UI\TurnEndButton.cs" />
      <Compile Include="Assets\05Scripts\02Characters\Enemy.cs" />
      <Compile Include="Assets\05Scripts\01Manager\InputManager.cs" />
+     <Compile Include="Assets\05Scripts\04UI\Big_Card.cs" />
      <Compile Include="Assets\05Scripts\02Characters\02Archer\Grinder.cs" />
      <Compile Include="Assets\05Scripts\02Characters\Characters.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\Phases.cs" />
@@ -76,7 +79,7 @@
      <Compile Include="Assets\05Scripts\04UI\Buttons.cs" />
      <Compile Include="Assets\05Scripts\04UI\MoveButtons.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\02DrawPhase.cs" />
-     <Compile Include="Assets\05Scripts\04UI\OptionButton.cs" />
+     <Compile Include="Assets\05Scripts\04UI\Big_Card_Panel.cs" />
      <None Include="Assets\+Etc\Imports\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\+Etc\Imports\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\+Etc\Imports\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

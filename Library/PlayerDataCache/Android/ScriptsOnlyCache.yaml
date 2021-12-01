@@ -1,17 +1,19 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - AutoLetterbox.ForceCameraRatio
+    - Big_Card
+    - Big_Card_Panel
     - Cannonneer
     - CardUI
+    - CardsPanel
     - Cost
     - Crowler
     - DeckSystem
+    - HandUI
     - MapManager
     - MoveButtons
     - OptionButton
     - Player
-    - RadialLayout
     - Shooter
     - StageManager
     - TurnEndButton
@@ -45,10 +47,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -60,9 +60,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
   sceneClasses:
-    Assets/04Scenes/BattleScene.unity:
+    Assets/04Scenes/BattleScene7x7.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -96,6 +97,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1538}
     - Class: 114
+      Script: {instanceID: 1678}
+    - Class: 114
       Script: {instanceID: 1746}
     - Class: 114
       Script: {instanceID: 2016}
@@ -120,9 +123,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2648}
     - Class: 114
-      Script: {instanceID: 2688}
-    - Class: 114
-      Script: {instanceID: 2764}
+      Script: {instanceID: 2700}
     - Class: 114
       Script: {instanceID: 2800}
     - Class: 114
@@ -136,19 +137,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3292}
     - Class: 114
-      Script: {instanceID: 3526}
+      Script: {instanceID: 3384}
     - Class: 114
-      Script: {instanceID: 3844}
+      Script: {instanceID: 3528}
     - Class: 114
-      Script: {instanceID: 4096}
+      Script: {instanceID: 3530}
     - Class: 114
-      Script: {instanceID: 4142}
+      Script: {instanceID: 3848}
     - Class: 114
-      Script: {instanceID: 4146}
+      Script: {instanceID: 3948}
     - Class: 114
-      Script: {instanceID: 4182}
+      Script: {instanceID: 4102}
     - Class: 114
-      Script: {instanceID: 4456}
+      Script: {instanceID: 4148}
+    - Class: 114
+      Script: {instanceID: 4152}
+    - Class: 114
+      Script: {instanceID: 4188}
+    - Class: 114
+      Script: {instanceID: 4462}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -188,7 +195,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 9fbb28cb002ce127cdaaad95db24e0fa
+      Hash: 5518b71bbb1f7dbd50bb4cae9e0a80f4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CardUI
@@ -326,7 +333,7 @@ ScriptsOnlyBuild:
     className: EnumerableTestState
   - hash:
       serializedVersion: 2
-      Hash: 4e03bc5aaa79673286db054fd23d6bf9
+      Hash: 24a732f2522f6371ad1df4ad4c22b674
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StageManager
@@ -452,16 +459,16 @@ ScriptsOnlyBuild:
     className: RadialLayout
   - hash:
       serializedVersion: 2
+      Hash: 1fe1dde9774a1e60f8102f3f94d20e0e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HandUI
+  - hash:
+      serializedVersion: 2
       Hash: e406e73c60b03c47c2324df4e7565d0a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Artillery_Base
-  - hash:
-      serializedVersion: 2
-      Hash: 95d86d606c5893d3ac8050d29afcf305
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: AutoLetterbox
-    className: ForceCameraRatio
   - hash:
       serializedVersion: 2
       Hash: e406e73c60b03c47c2324df4e7565d0a
@@ -645,6 +652,12 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardsPanel
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
@@ -672,6 +685,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TurnEndButton
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Big_Card_Panel
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -732,6 +751,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_Settings
+  - hash:
+      serializedVersion: 2
+      Hash: a09eec154daeb1c769b815831ed1bab8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Big_Card
   - hash:
       serializedVersion: 2
       Hash: 6980e81ddc615a861309d2d659cc3760
@@ -812,5 +837,5 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   platform: 13
   scenePathNames:
-  - Assets/04Scenes/BattleScene.unity
-  playerPath: C:/Users/sung9/Downloads/ui_bugfix.apk
+  - Assets/04Scenes/BattleScene7x7.unity
+  playerPath: C:/Users/sung9/Downloads/move_change.apk

@@ -74,19 +74,12 @@ public class DeckSystem : MonoBehaviour
     public void clearHand()
     {
         Debug.Log("clearHand");
-        int count = StageManager.stageManager.hand1.childCount;
+        int count = StageManager.stageManager.hand.childCount;
         for (int i = 0; i < count; i++)
         {
-            CardInfo card = StageManager.stageManager.hand1.GetChild(i).GetComponent<CardUI>().cardInfo;
+            CardInfo card = StageManager.stageManager.hand.GetChild(i).GetComponent<CardUI>().cardInfo;
             toUsedCard(card);
-            Destroy(StageManager.stageManager.hand1.GetChild(i).gameObject);
-        }
-        count = StageManager.stageManager.hand2.childCount;
-        for (int i = 0; i < count; i++)
-        {
-            CardInfo card = StageManager.stageManager.hand2.GetChild(i).GetComponent<CardUI>().cardInfo;
-            toUsedCard(card);
-            Destroy(StageManager.stageManager.hand2.GetChild(i).gameObject);
+            Destroy(StageManager.stageManager.hand.GetChild(i).gameObject);
         }
     }
 

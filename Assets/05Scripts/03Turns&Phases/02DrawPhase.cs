@@ -8,6 +8,7 @@ public class DrawPhase : Phases
     {
         TurnManager.turnManager.indicator.SetText("draw phase");
         TurnManager.turnManager.phase = phase.card_draw;
+        StageManager.stageManager.stage = StageStatus.DEFAULT;
     }
     public override bool IsComplete()
     {
@@ -15,29 +16,17 @@ public class DrawPhase : Phases
         {
             DeckSystem.deckSystem.clearHand();
         }
-        int n = StageManager.stageManager.hand1.childCount;
+        int n = StageManager.stageManager.hand.childCount;
         for (int i = 0; i < n; i++)
-            Destroy(StageManager.stageManager.hand1.GetChild(i).gameObject);
-        n = StageManager.stageManager.hand2.childCount;
-        for (int i = 0; i < n; i++)
-            Destroy(StageManager.stageManager.hand2.GetChild(i).gameObject);
+            Destroy(StageManager.stageManager.hand.GetChild(i).gameObject);
         n = StageManager.stageManager.GetPlayer().total_card;
         for (int i = 0; i < n; i++)
         {
-            if (i < 5)
-            {
-                GameObject card = Instantiate(StageManager.stageManager.card_Prefab, StageManager.stageManager.hand1);
-                card.GetComponent<CardUI>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
-                card.GetComponent<CardUI>().cardInfoUI();
-
-            }
-            else
-            {
-                GameObject card = Instantiate(StageManager.stageManager.card_Prefab, StageManager.stageManager.hand2);
-                card.GetComponent<CardUI>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
-                card.GetComponent<CardUI>().cardInfoUI();
-            }
+            GameObject card = Instantiate(StageManager.stageManager.card_Prefab, StageManager.stageManager.hand);
+            card.GetComponent<CardUI>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
+            card.GetComponent<CardUI>().cardInfoUI();
         }
+        StageManager.stageManager.hand.GetComponent<HandUI>().setWidth();
 
         return true;
     }

@@ -49,15 +49,15 @@ public enum Character_type
 
 static class Constants
 {
-    public const int mapWidth = 5;
-    public const int mapHeight = 5;
+    public const int mapWidth = 7;
+    public const int mapHeight = 7;
 
     public const int totalCount = mapHeight * mapWidth;
 
     public static int[] dx = { -1, 1, 0, 0 };
     public static int[] dy = { 0, 0, -1, 1 };
 
-    public static Vector3 character_tile_offset { get { return new Vector3(0, 0.55f, 0); } }
+    public static Vector3 character_tile_offset { get { return new Vector3(0, 1.05f, 0); } }
 }
 
 public enum phase
@@ -75,4 +75,16 @@ public enum phase
 public class Array2d<T> where T : class
 {
     public T[] data;
+}
+
+public enum StageStatus
+{
+    DECK_ON,
+    BIG_CARD_ON,
+
+    SELECTING_CARD,
+    SELECTING_MOVE,
+    CANNOT_TOUCH,
+    DEFAULT
+
 }

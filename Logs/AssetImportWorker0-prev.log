@@ -1,0 +1,644 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.11f1 (99c7afb366b3) revision 10078127'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.1348; Version 2009; 64bit' Language: 'ko' Physical Memory: 49086 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/sung9/Documents/GitHub/knock_back_out
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+10652
+Successfully changed project path to: C:/Users/sung9/Documents/GitHub/knock_back_out
+C:/Users/sung9/Documents/GitHub/knock_back_out
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 41.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.11f1 (99c7afb366b3)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/sung9/Documents/GitHub/knock_back_out/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f08)
+    Vendor:   
+    VRAM:     5980 MB
+    Driver:   30.0.14.9649
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56612
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001721 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 58.22 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.753 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.009724 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.59 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.390 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1544 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 74.9 MB.
+System memory in use after: 75.0 MB.
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 1989.
+Total: 22.937200 ms (FindLiveObjects: 0.210500 ms CreateObjectMapping: 0.054700 ms MarkObjects: 22.617200 ms  DeleteObjects: 0.052600 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/05Scripts/01Manager/InputManager.cs
+  artifactKey: Guid(32ae6522721d2a144a62181a946b3a51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/05Scripts/01Manager/InputManager.cs using Guid(32ae6522721d2a144a62181a946b3a51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e2fe9769781a82b5611d50634dbcf52') in 0.140990 seconds
+  Import took 0.149813 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005885 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.53 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.019 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.38 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1528 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.4 MB.
+System memory in use after: 73.5 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1991.
+Total: 1.884900 ms (FindLiveObjects: 0.160200 ms CreateObjectMapping: 0.052900 ms MarkObjects: 1.654200 ms  DeleteObjects: 0.016600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 76.342031 seconds.
+  path: Assets/05Scripts/01Manager/InputManager.cs
+  artifactKey: Guid(32ae6522721d2a144a62181a946b3a51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/05Scripts/01Manager/InputManager.cs using Guid(32ae6522721d2a144a62181a946b3a51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '400415c8b157c3acdda151f62688af7a') in 0.006277 seconds
+  Import took 0.009193 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007812 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.128 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1528 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.4 MB.
+System memory in use after: 73.5 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1993.
+Total: 1.956400 ms (FindLiveObjects: 0.149200 ms CreateObjectMapping: 0.047300 ms MarkObjects: 1.733700 ms  DeleteObjects: 0.024800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006108 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.038 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1528 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.4 MB.
+System memory in use after: 73.5 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1995.
+Total: 2.339500 ms (FindLiveObjects: 0.222500 ms CreateObjectMapping: 0.085500 ms MarkObjects: 2.010800 ms  DeleteObjects: 0.019600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006950 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.031 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1528 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.5 MB.
+System memory in use after: 73.6 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1997.
+Total: 1.797000 ms (FindLiveObjects: 0.220700 ms CreateObjectMapping: 0.057200 ms MarkObjects: 1.501800 ms  DeleteObjects: 0.016300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006713 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.015 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1528 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.5 MB.
+System memory in use after: 73.6 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1999.
+Total: 2.739500 ms (FindLiveObjects: 0.187900 ms CreateObjectMapping: 0.068500 ms MarkObjects: 2.459400 ms  DeleteObjects: 0.022400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007223 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.39 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.012 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.43 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1528 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.5 MB.
+System memory in use after: 73.6 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 2001.
+Total: 2.544300 ms (FindLiveObjects: 0.150900 ms CreateObjectMapping: 0.047600 ms MarkObjects: 2.323900 ms  DeleteObjects: 0.020700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005931 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.67 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.245 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.38 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1528 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.5 MB.
+System memory in use after: 73.6 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 2003.
+Total: 2.337500 ms (FindLiveObjects: 0.178000 ms CreateObjectMapping: 0.057900 ms MarkObjects: 2.075800 ms  DeleteObjects: 0.024700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006009 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.070 seconds
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1528 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 73.5 MB.
+System memory in use after: 73.6 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 2005.
+Total: 1.984100 ms (FindLiveObjects: 0.157700 ms CreateObjectMapping: 0.050700 ms MarkObjects: 1.753400 ms  DeleteObjects: 0.020900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+========================================================================
+Received Import Request.
+  Time since last request: 1551.504633 seconds.
+  path: Assets/02Bitmaps/abc
+  artifactKey: Guid(6bbe8ef7fd7512645a6f74572646e3f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc using Guid(6bbe8ef7fd7512645a6f74572646e3f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1924215b77d118f2c6accb7e3ff28b12') in 0.011050 seconds
+  Import took 0.014026 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.536279 seconds.
+  path: Assets/02Bitmaps/abc/예견
+  artifactKey: Guid(e28b659af7d6b4748966d2c39ba46b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견 using Guid(e28b659af7d6b4748966d2c39ba46b53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a775de6583a3ae86559545f3601bdf59') in 0.007394 seconds
+  Import took 0.010121 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.058413 seconds.
+  path: Assets/02Bitmaps/abc/예견/attack tile.png
+  artifactKey: Guid(9be77381a6f9faa41b7c96b7b4705163) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/attack tile.png using Guid(9be77381a6f9faa41b7c96b7b4705163) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ef390e5490861d4f1fc8bce16c9fb54') in 0.119785 seconds
+  Import took 0.122293 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line angle4.png
+  artifactKey: Guid(79be7a6b3e4479145952014262230d6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line angle4.png using Guid(79be7a6b3e4479145952014262230d6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc729d2aec05a0f3112d801dcd83ea47') in 0.016865 seconds
+  Import took 0.019615 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line angle3.png
+  artifactKey: Guid(7787ea04146a0ff48b7b6ec8e4aac0d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line angle3.png using Guid(7787ea04146a0ff48b7b6ec8e4aac0d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3697b56cfeca192f60a2d0282d8dcb66') in 0.017843 seconds
+  Import took 0.020646 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/02Bitmaps/abc/예견/foresight arrow 1-2.png
+  artifactKey: Guid(a3447ce21527e1c4593743b638855453) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/foresight arrow 1-2.png using Guid(a3447ce21527e1c4593743b638855453) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3244ca1f5828c45f79db6e3963def3ae') in 0.015063 seconds
+  Import took 0.017672 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/02Bitmaps/abc/예견/foresight line 2.png
+  artifactKey: Guid(8cd14e1d323d758479987dda14d60e07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/foresight line 2.png using Guid(8cd14e1d323d758479987dda14d60e07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ae80bd523d0a3abbc00bb4264f940c1') in 0.017736 seconds
+  Import took 0.021372 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line start 1.png
+  artifactKey: Guid(efe72481350a0954c8761098a53561fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line start 1.png using Guid(efe72481350a0954c8761098a53561fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '967a34c153c583e41ce0ce919400d23b') in 0.017140 seconds
+  Import took 0.019679 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/02Bitmaps/abc/예견/foresight arrow 2-2.png
+  artifactKey: Guid(403f49ffc5fbe804c9400904aaee692f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/foresight arrow 2-2.png using Guid(403f49ffc5fbe804c9400904aaee692f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d8bf977ac5f431a17f74f4f3d8fdb2d') in 0.019845 seconds
+  Import took 0.025405 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Assets/02Bitmaps/abc/예견/foresight arrow 2-1.png
+  artifactKey: Guid(be73fca1f9614ff4e8cc7c9a1ebf6826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/foresight arrow 2-1.png using Guid(be73fca1f9614ff4e8cc7c9a1ebf6826) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79a8102d4619ebfb5c4ef5b5d2b9300a') in 0.017214 seconds
+  Import took 0.020820 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/02Bitmaps/abc/예견/how line 3.png
+  artifactKey: Guid(ef00a63086cdcd7439e79ad47835ff21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how line 3.png using Guid(ef00a63086cdcd7439e79ad47835ff21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30f3dcf0ac2276c3edc560d0b249f637') in 0.015277 seconds
+  Import took 0.017941 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line angle2.png
+  artifactKey: Guid(36d13b62ec639404980f33777a645202) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line angle2.png using Guid(36d13b62ec639404980f33777a645202) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '110e3d9a03bbf3be1e24e1c9dccbc458') in 0.015444 seconds
+  Import took 0.017775 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/02Bitmaps/abc/예견/foresight arraow 1-1.png
+  artifactKey: Guid(a9abad260149e7b4bba078b855e53ad5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/foresight arraow 1-1.png using Guid(a9abad260149e7b4bba078b855e53ad5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7edbae99c4a1d23caa3537dc384dbd10') in 0.015144 seconds
+  Import took 0.017543 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/02Bitmaps/abc/예견/how line 4.png
+  artifactKey: Guid(ccee6b74f7b828e49bba12e00fc15e53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how line 4.png using Guid(ccee6b74f7b828e49bba12e00fc15e53) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fdc719c29fabf0cbc931f07bbc1c283') in 0.016364 seconds
+  Import took 0.019213 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/02Bitmaps/abc/예견/howline2.png
+  artifactKey: Guid(caf5edd04dfb21945810e6a6f0ffd463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/howline2.png using Guid(caf5edd04dfb21945810e6a6f0ffd463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d544e3b15075035597345de10145b3a') in 0.016124 seconds
+  Import took 0.019853 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/02Bitmaps/abc/예견/enemy come tile.png
+  artifactKey: Guid(638e0ab5763e985408b8ee68222f62dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/enemy come tile.png using Guid(638e0ab5763e985408b8ee68222f62dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee420bdfc1daf17cdedd74f57fe5ac49') in 0.016033 seconds
+  Import took 0.018683 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/02Bitmaps/abc/예견/how line1.png
+  artifactKey: Guid(92418e194771e75419e36ee2cdd4566e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how line1.png using Guid(92418e194771e75419e36ee2cdd4566e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ac3748a5ce782bdda4b120bc6cdf34e') in 0.016518 seconds
+  Import took 0.019703 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/02Bitmaps/abc/예견/how shoot line2.png
+  artifactKey: Guid(164d2c6f962925a429d39418a1d91712) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how shoot line2.png using Guid(164d2c6f962925a429d39418a1d91712) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '620f0bb7cef4b7fc4f1c4aff2b2cebe9') in 0.017397 seconds
+  Import took 0.020243 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line angle 1.png
+  artifactKey: Guid(b65bc3d5e2a3d964d97e23d14fb36c40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line angle 1.png using Guid(b65bc3d5e2a3d964d97e23d14fb36c40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96a0c98ad92705e51c887cd91deea3d4') in 0.016963 seconds
+  Import took 0.019420 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/02Bitmaps/abc/예견/foresight line 1.png
+  artifactKey: Guid(bfe692fe0aaea9f4999699f972e1d3a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/foresight line 1.png using Guid(bfe692fe0aaea9f4999699f972e1d3a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3a40c0c2aea8f536fec632601a7db2f') in 0.018388 seconds
+  Import took 0.020966 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/02Bitmaps/abc/예견/how shoot line4.png
+  artifactKey: Guid(61d03da0330c1e342a90fec9c78aa59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how shoot line4.png using Guid(61d03da0330c1e342a90fec9c78aa59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5082f9c81e35199856309800d986591f') in 0.019978 seconds
+  Import took 0.023015 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/02Bitmaps/abc/예견/how shoot line1.png
+  artifactKey: Guid(9951aaa5aa64be742bd6e34bb53314d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how shoot line1.png using Guid(9951aaa5aa64be742bd6e34bb53314d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4cd542b8e5f67bd45ba40c4825f8cbb') in 0.021890 seconds
+  Import took 0.025935 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000259 seconds.
+  path: Assets/02Bitmaps/abc/예견/how shoot line3.png
+  artifactKey: Guid(d8243e754629a4243a1446f7dabfd117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how shoot line3.png using Guid(d8243e754629a4243a1446f7dabfd117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7efbe2c143d0f4a0b96a73fd5bcc3106') in 0.014982 seconds
+  Import took 0.017625 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 29.502290 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line start2.png
+  artifactKey: Guid(abd07528edf5bd547bc4e0586f307775) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line start2.png using Guid(abd07528edf5bd547bc4e0586f307775) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42bcda1306b872ace5b2424b795e713b') in 0.017237 seconds
+  Import took 0.020045 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000343 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line start4.png
+  artifactKey: Guid(a63d90ea2fd9c8245a7bb114398b723a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line start4.png using Guid(a63d90ea2fd9c8245a7bb114398b723a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '827063ac47deab5fb7bdbc97e4d2ba20') in 0.017076 seconds
+  Import took 0.020050 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000254 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line start3.png
+  artifactKey: Guid(70df0eabf431c8e4b9bcd233945508b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line start3.png using Guid(70df0eabf431c8e4b9bcd233945508b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ab53c9be0c0f1d880963156c10780da') in 0.015769 seconds
+  Import took 0.018544 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/02Bitmaps/abc/예견/MOVE TILE.png
+  artifactKey: Guid(4f86d4da12709874c81a1c8b4286755c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/MOVE TILE.png using Guid(4f86d4da12709874c81a1c8b4286755c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '450e4e3329c076ba520d79ad933e8774') in 0.017687 seconds
+  Import took 0.021048 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/02Bitmaps/abc/예견/TILE2.png
+  artifactKey: Guid(95b7a71eaab35e94da0d2ab53e3f9d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/TILE2.png using Guid(95b7a71eaab35e94da0d2ab53e3f9d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4c78ddaec573ed6474b83fb5a404e1c') in 0.017257 seconds
+  Import took 0.019928 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000267 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line1.png
+  artifactKey: Guid(43b624c520036214a8221f850bde805d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line1.png using Guid(43b624c520036214a8221f850bde805d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be877bd9527459c5c1015d69b5b832ad') in 0.015637 seconds
+  Import took 0.018313 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line2.png
+  artifactKey: Guid(4c1de3f3191282449844013afa03b136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line2.png using Guid(4c1de3f3191282449844013afa03b136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '595393b7350c727f53da1ca88c96f975') in 0.017305 seconds
+  Import took 0.019737 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.370940 seconds.
+  path: Assets/02Bitmaps/abc/예견/how shoot line2.png
+  artifactKey: Guid(164d2c6f962925a429d39418a1d91712) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how shoot line2.png using Guid(164d2c6f962925a429d39418a1d91712) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a17f77cbc8406900cc8200934e178bb') in 0.011514 seconds
+  Import took 0.014091 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line angle4.png
+  artifactKey: Guid(79be7a6b3e4479145952014262230d6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line angle4.png using Guid(79be7a6b3e4479145952014262230d6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e38574f29a41f6968321f4617da088a') in 0.011239 seconds
+  Import took 0.014516 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line angle3.png
+  artifactKey: Guid(7787ea04146a0ff48b7b6ec8e4aac0d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line angle3.png using Guid(7787ea04146a0ff48b7b6ec8e4aac0d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32f25ca80da4f71d11e71be5bd1cf56c') in 0.013909 seconds
+  Import took 0.016377 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line start4.png
+  artifactKey: Guid(a63d90ea2fd9c8245a7bb114398b723a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line start4.png using Guid(a63d90ea2fd9c8245a7bb114398b723a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85c8a388e3d35d9221299fe0d52515f8') in 0.012634 seconds
+  Import took 0.014949 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line start 1.png
+  artifactKey: Guid(efe72481350a0954c8761098a53561fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line start 1.png using Guid(efe72481350a0954c8761098a53561fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b0080dddba36388ca2f704f48cc39ca') in 0.011618 seconds
+  Import took 0.014056 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000162 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line start2.png
+  artifactKey: Guid(abd07528edf5bd547bc4e0586f307775) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line start2.png using Guid(abd07528edf5bd547bc4e0586f307775) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b13b92f8044a31cb243c3f4af21b6b0') in 0.015370 seconds
+  Import took 0.018250 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/02Bitmaps/abc/예견/MOVE TILE.png
+  artifactKey: Guid(4f86d4da12709874c81a1c8b4286755c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/MOVE TILE.png using Guid(4f86d4da12709874c81a1c8b4286755c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6ee87a0bc1f55b9d73cd23c750f3615') in 0.011409 seconds
+  Import took 0.014576 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line angle2.png
+  artifactKey: Guid(36d13b62ec639404980f33777a645202) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line angle2.png using Guid(36d13b62ec639404980f33777a645202) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77fbfb4ab3b6a5ad2fecb6fa6b24f0bf') in 0.011378 seconds
+  Import took 0.015391 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000249 seconds.
+  path: Assets/02Bitmaps/abc/예견/foresight arraow 1-1.png
+  artifactKey: Guid(a9abad260149e7b4bba078b855e53ad5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/foresight arraow 1-1.png using Guid(a9abad260149e7b4bba078b855e53ad5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec71eab6cc99113eee46d4a6fda0eb43') in 0.015061 seconds
+  Import took 0.020006 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000144 seconds.
+  path: Assets/02Bitmaps/abc/예견/howline2.png
+  artifactKey: Guid(caf5edd04dfb21945810e6a6f0ffd463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/howline2.png using Guid(caf5edd04dfb21945810e6a6f0ffd463) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a070999502e1d38698b163f43f82c1c') in 0.012075 seconds
+  Import took 0.014878 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line angle 1.png
+  artifactKey: Guid(b65bc3d5e2a3d964d97e23d14fb36c40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line angle 1.png using Guid(b65bc3d5e2a3d964d97e23d14fb36c40) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65040e4a58a984c0e55df27f4b40ebe7') in 0.015010 seconds
+  Import took 0.017414 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000146 seconds.
+  path: Assets/02Bitmaps/abc/예견/TILE2.png
+  artifactKey: Guid(95b7a71eaab35e94da0d2ab53e3f9d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/TILE2.png using Guid(95b7a71eaab35e94da0d2ab53e3f9d38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3f721da72203aeafd91e157a9e71c294') in 0.011967 seconds
+  Import took 0.014498 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line start3.png
+  artifactKey: Guid(70df0eabf431c8e4b9bcd233945508b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line start3.png using Guid(70df0eabf431c8e4b9bcd233945508b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f17406fdffbe8ff36ab7bc0fe9d8efb') in 0.012219 seconds
+  Import took 0.015195 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line1.png
+  artifactKey: Guid(43b624c520036214a8221f850bde805d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line1.png using Guid(43b624c520036214a8221f850bde805d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eba56fb5fc778f9b5faed7f1945fbd63') in 0.014123 seconds
+  Import took 0.017259 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000480 seconds.
+  path: Assets/02Bitmaps/abc/예견/move line2.png
+  artifactKey: Guid(4c1de3f3191282449844013afa03b136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/move line2.png using Guid(4c1de3f3191282449844013afa03b136) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5648a4ca70e4daf96ee83fa5313390f1') in 0.014962 seconds
+  Import took 0.017784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/02Bitmaps/abc/예견/how shoot line4.png
+  artifactKey: Guid(61d03da0330c1e342a90fec9c78aa59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how shoot line4.png using Guid(61d03da0330c1e342a90fec9c78aa59e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcb25e6279a6da6a6c8e6d73250beabf') in 0.011277 seconds
+  Import took 0.014675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/02Bitmaps/abc/예견/how shoot line3.png
+  artifactKey: Guid(d8243e754629a4243a1446f7dabfd117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/02Bitmaps/abc/예견/how shoot line3.png using Guid(d8243e754629a4243a1446f7dabfd117) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5bbab30ff63e85e5a68c371005f8d77') in 0.014708 seconds
+  Import took 0.017285 seconds .
+

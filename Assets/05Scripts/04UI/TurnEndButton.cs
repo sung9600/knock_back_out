@@ -16,8 +16,9 @@ public class TurnEndButton : Buttons
         if (TurnManager.turnManager.phase != phase.player_turn) return;
         TurnManager.turnManager.turns[TurnManager.turnManager.turnIndex].index = 4;
         MoveButtons.nav_on = false;
-        MapManager.mapManager.clearNavTiles();
+        MapManager.mapManager.clearNavTiles(1);
         DeckSystem.deckSystem.clearHand();
         player_turn_done = true;
+        StageManager.stageManager.stage = StageStatus.CANNOT_TOUCH;
     }
 }

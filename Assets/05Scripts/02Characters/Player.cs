@@ -16,7 +16,7 @@ public class Player : Characters
             int x = a.x;
             int y = a.y;
             MapManager.mapManager.GetTilemap(1).SetTile(new Vector3Int(x, y, 0),
-                MapManager.mapManager.GetTile(0, 6));
+                MapManager.mapManager.GetTile(0, 5));
         }
 
     }

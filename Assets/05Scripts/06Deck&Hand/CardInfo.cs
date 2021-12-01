@@ -6,6 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class CardInfo
 {
+    public static int card_num = 1;
     public string name;
     [SerializeField]
     public CardType type;
@@ -14,7 +15,7 @@ public class CardInfo
     public int ID = 0;
     public CardInfo(int a)
     {
-        ID = CardUI.card_num++;
+        ID = card_num++;
         name = "card" + ID;
         type = CardType.Attack_indirect;
         Cost = 1;

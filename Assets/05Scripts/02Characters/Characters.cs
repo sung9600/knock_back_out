@@ -43,6 +43,36 @@ public class Pos
         return x + ", " + y;
     }
 
+    public static int getDir(Pos first, Pos second)
+    {
+        // 좌: 2
+        // 우: 3
+        // 상: 5
+        // 하: 7
+        // 아니면 11
+        Pos dir = second - first;
+        if (dir.x > 0)
+        {
+            return 3;
+        }
+        else if (dir.x < 0)
+        {
+            return 2;
+        }
+        else
+        {
+            if (dir.y > 0)
+            {
+                return 5;
+            }
+            else if (dir.y < 0)
+            {
+                return 7;
+            }
+        }
+        return 5;
+    }
+
 }
 [System.Serializable]
 public class Character_stat
@@ -87,6 +117,8 @@ public class Characters : MonoBehaviour
         ChangeMapByte();
         MoveButtons.nav_on = false;
         status = Character_status.waiting;
+        if (gameObject.GetComponent<Player>() != null)
+            StageManager.stageManager.stage = StageStatus.DEFAULT;
         yield break;
     }
     private bool flip;
