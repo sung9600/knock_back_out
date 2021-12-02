@@ -47,11 +47,17 @@ public class StageManager : MonoBehaviour
         }
         return null;
     }
+    [SerializeField]
+    private Transform CharacterCanvas = null;
+    public Transform getCharacterCanvas() { return CharacterCanvas; }
 
     public StageStatus stage = StageStatus.CANNOT_TOUCH;
-    public Transform hand;
-    public GameObject big_Card = null;
-    public GameObject card_Prefab;
+    [SerializeField] private Transform hand;
+    public Transform getHand() { return hand; }
+    [SerializeField] private GameObject card_Preview = null;
+    public GameObject getCardPreview() { return card_Preview; }
+    [SerializeField] private GameObject card_Prefab;
+    public GameObject getCardPrefab() { return card_Prefab; }
     private static bool gameStop;
     public bool isgameStopped()
     {

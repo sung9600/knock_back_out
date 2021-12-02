@@ -11,7 +11,7 @@ public class Big_Card_Panel : MonoBehaviour, IPointerClickHandler
 
         Debug.Log("close big card");
         StageManager.stageManager.stage = StageStatus.DECK_ON;
-        StageManager.stageManager.big_Card.SetActive(false);
+        StageManager.stageManager.getCardPreview().SetActive(false);
         CardUI.selected_Card.SetActive(true);
         gameObject.SetActive(false);
     }

@@ -101,7 +101,7 @@ public class Artillery_Base : Enemy
         atk_dir = atk_target.curpos - curpos;
         /// 이거를 타일로 표시하는거 말고 indicator ( 화살표? )로 표시할수 있도록 바꿔야할듯
         warning_pos = curpos + atk_dir;
-        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(atk_target.curpos.x, atk_target.curpos.y, 0), MapManager.mapManager.GetTile(0, 7));
+        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(atk_target.curpos.x, atk_target.curpos.y, 0), MapManager.mapManager.GetTile(0, 6));
     }
     public override void Skill() { Debug.Log("artskill"); }
 

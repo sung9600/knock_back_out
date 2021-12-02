@@ -110,8 +110,8 @@ public class CardUI : MonoBehaviour, IPointerClickHandler//, IBeginDragHandler, 
             case StageStatus.DECK_ON:
                 Debug.Log("open big card");
                 selected_Card = this.gameObject;
-                StageManager.stageManager.big_Card.SetActive(true);
-                StageManager.stageManager.big_Card.GetComponent<Big_Card>().SetData(this.cardInfo);
+                StageManager.stageManager.getCardPreview().SetActive(true);
+                StageManager.stageManager.getCardPreview().GetComponent<Big_Card>().SetData(this.cardInfo);
                 gameObject.SetActive(false);
                 StageManager.stageManager.stage = StageStatus.BIG_CARD_ON;
                 break;
@@ -119,7 +119,7 @@ public class CardUI : MonoBehaviour, IPointerClickHandler//, IBeginDragHandler, 
                 Debug.Log("open other big card");
                 selected_Card.SetActive(true);
                 selected_Card = this.gameObject;
-                StageManager.stageManager.big_Card.GetComponent<Big_Card>().SetData(this.cardInfo);
+                StageManager.stageManager.getCardPreview().GetComponent<Big_Card>().SetData(this.cardInfo);
                 gameObject.SetActive(false);
                 break;
         }

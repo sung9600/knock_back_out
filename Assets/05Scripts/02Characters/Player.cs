@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Player : Characters
 {
@@ -9,6 +10,7 @@ public class Player : Characters
     public int remain_move;
     public int moverange;
     public int total_card = 10;
+
     public void showNav(List<Pos> tiles)
     {
         foreach (var a in tiles)

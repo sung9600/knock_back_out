@@ -34,7 +34,9 @@ public class EnemyAtk : Phases
                     int count = StageManager.stageManager.getEnemy_Prefabs().Count;
                     int index = Random.Range(0, count);
                     GameObject go = Instantiate(StageManager.stageManager.getEnemy_Prefab_byIndex(index)
-                        , Constants.character_tile_offset + MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(pos), Quaternion.identity);
+                        //, Constants.character_tile_offset + MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(pos), Quaternion.identity
+                        , StageManager.stageManager.getCharacterCanvas());
+                    go.GetComponent<RectTransform>().anchoredPosition = Constants.character_tile_offset + Camera.main.WorldToScreenPoint(MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(pos));
                     go.GetComponent<Enemy>().init(new Pos(i, j));
                     i--;
                     return false;

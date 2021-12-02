@@ -103,7 +103,7 @@ public class Warrior_Base : Enemy
         atk_dir = atk_target.curpos - curpos;
         /// 이거를 타일로 표시하는거 말고 indicator ( 화살표? )로 표시할수 있도록 바꿔야할듯
         warning_pos = new Pos(curpos.x + atk_dir.x, curpos.y + atk_dir.y);
-        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(curpos.x + atk_dir.x, curpos.y + atk_dir.y, 0), MapManager.mapManager.GetTile(0, 7));
+        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(curpos.x + atk_dir.x, curpos.y + atk_dir.y, 0), MapManager.mapManager.GetTile(0, 6));
     }
 
     public virtual void attack()

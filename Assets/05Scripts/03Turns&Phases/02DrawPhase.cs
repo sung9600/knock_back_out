@@ -16,17 +16,17 @@ public class DrawPhase : Phases
         {
             DeckSystem.deckSystem.clearHand();
         }
-        int n = StageManager.stageManager.hand.childCount;
+        int n = StageManager.stageManager.getHand().childCount;
         for (int i = 0; i < n; i++)
-            Destroy(StageManager.stageManager.hand.GetChild(i).gameObject);
+            Destroy(StageManager.stageManager.getHand().GetChild(i).gameObject);
         n = StageManager.stageManager.GetPlayer().total_card;
         for (int i = 0; i < n; i++)
         {
-            GameObject card = Instantiate(StageManager.stageManager.card_Prefab, StageManager.stageManager.hand);
+            GameObject card = Instantiate(StageManager.stageManager.getCardPrefab(), StageManager.stageManager.getHand());
             card.GetComponent<CardUI>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
             card.GetComponent<CardUI>().cardInfoUI();
         }
-        StageManager.stageManager.hand.GetComponent<HandUI>().setWidth();
+        StageManager.stageManager.getHand().GetComponent<HandUI>().setWidth();
 
         return true;
     }

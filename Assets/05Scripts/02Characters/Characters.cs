@@ -110,7 +110,8 @@ public class Characters : MonoBehaviour
         MapManager.mapManager.map[curpos.x, curpos.y] &= 0x3fffffff;
         for (int i = 0; i < path.Count; i++)
         {
-            transform.position = MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(new Vector3Int(path[i].x, path[i].y, 0)) + Constants.character_tile_offset;
+            GetComponent<RectTransform>().anchoredPosition
+                = Camera.main.WorldToScreenPoint(MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(new Vector3Int(path[i].x, path[i].y, 0))) + Constants.character_tile_offset;
             yield return new WaitForSeconds(0.2f);
         }
         curpos = path[path.Count - 1];

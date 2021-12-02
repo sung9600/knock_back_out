@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-
+using TMPro;
 public class DeckSystem : MonoBehaviour
 {
     public static DeckSystem deckSystem;
     public List<CardInfo> deckTemp = new List<CardInfo>();
     public List<CardInfo> hand = new List<CardInfo>();
-    public List<CardInfo> usedCards = new List<CardInfo>();
+    public List<CardInfo> ExceptDeck = new List<CardInfo>();
+    public List<CardInfo> TombDeck = new List<CardInfo>();
 
-    public List<CardInfo> deck = new List<CardInfo>();
+    public List<CardInfo> MainDeck = new List<CardInfo>();
+    [SerializeField]
+    private TextMeshProUGUI[] DeckTexts; // 덱 , 제외덱 , 무덤덱
 
     private void Awake()
     {
@@ -23,7 +26,7 @@ public class DeckSystem : MonoBehaviour
         for (int i = 0; i < 30; i++)
         {
             CardInfo cardInfo = new CardInfo(0);
-            usedCards.Add(cardInfo);
+            ExceptDeck.Add(cardInfo);
         }
         //ShuffleDeck();
     }
@@ -31,8 +34,8 @@ public class DeckSystem : MonoBehaviour
     public void ShuffleDeck()
     {
         // used -> deckTemp + deckTemp shuffle + deckTemp -> hand
-        deckTemp = usedCards.ToList();
-        usedCards.Clear();
+        deckTemp = ExceptDeck.ToList();
+        ExceptDeck.Clear();
         int n = deckTemp.Count;
         Debug.Log("n:" + n);
         for (int i = n - 1; i > 0; i--)
@@ -44,18 +47,21 @@ public class DeckSystem : MonoBehaviour
         }
         for (int i = 0; i < n; i++)
         {
-            deck.Add(deckTemp[i]);
+            MainDeck.Add(deckTemp[i]);
         }
         deckTemp.Clear();
+        UpdateDeckCounts();
     }
 
     public CardInfo DrawCardFromDeck()
     {
-        if (deck.Count == 0) ShuffleDeck();
-        CardInfo temp = deck[0];
-        deck.RemoveAt(0);
+        if (MainDeck.Count == 0) ShuffleDeck();
+        CardInfo temp = MainDeck[0];
+        MainDeck.RemoveAt(0);
         hand.Add(temp);
+
         //Debug.Log(temp.ID);
+        UpdateDeckCounts();
         return temp;
     }
     public void toUsedCard(CardInfo cardInfo)
@@ -64,23 +70,31 @@ public class DeckSystem : MonoBehaviour
         {
             if (cardInfo.ID == hand[i].ID)
             {
-                usedCards.Add(hand[i]);
+                ExceptDeck.Add(hand[i]);
                 hand.Remove(hand[i]);
                 break;
             }
         }
+        UpdateDeckCounts();
     }
 
     public void clearHand()
     {
         Debug.Log("clearHand");
-        int count = StageManager.stageManager.hand.childCount;
+        int count = StageManager.stageManager.getHand().childCount;
         for (int i = 0; i < count; i++)
         {
-            CardInfo card = StageManager.stageManager.hand.GetChild(i).GetComponent<CardUI>().cardInfo;
+            CardInfo card = StageManager.stageManager.getHand().GetChild(i).GetComponent<CardUI>().cardInfo;
             toUsedCard(card);
-            Destroy(StageManager.stageManager.hand.GetChild(i).gameObject);
+            Destroy(StageManager.stageManager.getHand().GetChild(i).gameObject);
         }
+        UpdateDeckCounts();
     }
 
+    public void UpdateDeckCounts()
+    {
+        DeckTexts[0].SetText(MainDeck.Count.ToString());
+        DeckTexts[1].SetText(ExceptDeck.Count.ToString());
+        DeckTexts[2].SetText(TombDeck.Count.ToString());
+    }
 }

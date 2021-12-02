@@ -195,7 +195,7 @@ public class InputManager
             // CANNOT TOUCH ( TURN END ~ BEFORE DRAW PHASE )
             if (StageManager.stageManager.stage == StageStatus.CANNOT_TOUCH)
             {
-                Debug.Log("not allowed touch");
+                //Debug.Log("not allowed touch");
                 return;
             }
 

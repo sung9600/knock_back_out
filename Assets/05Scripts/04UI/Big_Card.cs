@@ -29,6 +29,7 @@ public class Big_Card : MonoBehaviour, IPointerClickHandler
         // disable this
         // destroy 원본
         // navigation 띄우기
+        StageManager.stageManager.GetPlayer().useCard(CardUI.selected_Card.GetComponent<CardUI>());
         big_Card_Panel.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
