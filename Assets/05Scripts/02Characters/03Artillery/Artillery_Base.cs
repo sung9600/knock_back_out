@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Artillery_Base : Enemy
 {
-    public override void init(Pos pos)
-    {
-        targets.Add(StageManager.stageManager.GetPlayer());
-        curpos = pos;
-        ChangeMapByte();
-        //(curpos.x + "," + curpos.y + ":" + MapManager.mapManager.map[curpos.x, curpos.y]);
-    }
     public override void SetTarget()
     {
         atk_target = null;
@@ -94,14 +87,6 @@ public class Artillery_Base : Enemy
         }
 
         if (!turn_done) turn_done = true;
-    }
-    public override void Warning()
-    {
-        if (atk_target == null) return;
-        atk_dir = atk_target.curpos - curpos;
-        /// 이거를 타일로 표시하는거 말고 indicator ( 화살표? )로 표시할수 있도록 바꿔야할듯
-        warning_pos = curpos + atk_dir;
-        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(atk_target.curpos.x, atk_target.curpos.y, 0), MapManager.mapManager.GetTile(0, 6));
     }
     public override void Skill() { Debug.Log("artskill"); }
 

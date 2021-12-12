@@ -11,6 +11,7 @@ public class Player : Characters
     public int moverange;
     public int total_card = 10;
 
+
     public void showNav(List<Pos> tiles)
     {
         foreach (var a in tiles)

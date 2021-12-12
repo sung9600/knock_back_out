@@ -3,18 +3,30 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Big_Card
     - Big_Card_Panel
-    - Cannonneer
+    - Cannonneer_Stat
     - CardUI
     - CardsPanel
+    - Charger
+    - Charger_Stat
     - Cost
+    - CrossHair_Stat
     - Crowler
+    - Crowler_Stat
     - DeckSystem
+    - DoubleTap
+    - DoubleTap_Stat
+    - Frowler
+    - Frowler_Stat
+    - Grinder
+    - Grinder_Stat
     - HandUI
     - MapManager
     - MoveButtons
     - OptionButton
     - Player
+    - Player_Stat
     - Shooter
+    - Shooter_Stat
     - StageManager
     - TurnEndButton
     - TurnManager
@@ -95,67 +107,91 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1486}
     - Class: 114
-      Script: {instanceID: 1538}
+      Script: {instanceID: 1508}
     - Class: 114
-      Script: {instanceID: 1678}
+      Script: {instanceID: 1540}
     - Class: 114
-      Script: {instanceID: 1746}
+      Script: {instanceID: 1616}
     - Class: 114
-      Script: {instanceID: 2016}
+      Script: {instanceID: 1682}
     - Class: 114
-      Script: {instanceID: 2216}
+      Script: {instanceID: 1750}
     - Class: 114
-      Script: {instanceID: 2272}
+      Script: {instanceID: 1814}
     - Class: 114
-      Script: {instanceID: 2340}
+      Script: {instanceID: 1856}
     - Class: 114
-      Script: {instanceID: 2394}
+      Script: {instanceID: 2022}
     - Class: 114
-      Script: {instanceID: 2444}
+      Script: {instanceID: 2150}
     - Class: 114
-      Script: {instanceID: 2482}
+      Script: {instanceID: 2280}
     - Class: 114
-      Script: {instanceID: 2486}
+      Script: {instanceID: 2348}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 2402}
     - Class: 114
-      Script: {instanceID: 2624}
+      Script: {instanceID: 2434}
     - Class: 114
-      Script: {instanceID: 2648}
+      Script: {instanceID: 2454}
     - Class: 114
-      Script: {instanceID: 2700}
+      Script: {instanceID: 2492}
     - Class: 114
-      Script: {instanceID: 2800}
+      Script: {instanceID: 2496}
     - Class: 114
-      Script: {instanceID: 2882}
+      Script: {instanceID: 2616}
     - Class: 114
-      Script: {instanceID: 3046}
+      Script: {instanceID: 2634}
     - Class: 114
-      Script: {instanceID: 3204}
+      Script: {instanceID: 2658}
     - Class: 114
-      Script: {instanceID: 3252}
+      Script: {instanceID: 2710}
     - Class: 114
-      Script: {instanceID: 3292}
+      Script: {instanceID: 2792}
     - Class: 114
-      Script: {instanceID: 3384}
+      Script: {instanceID: 2810}
     - Class: 114
-      Script: {instanceID: 3528}
+      Script: {instanceID: 2892}
     - Class: 114
-      Script: {instanceID: 3530}
+      Script: {instanceID: 3042}
     - Class: 114
-      Script: {instanceID: 3848}
+      Script: {instanceID: 3058}
     - Class: 114
-      Script: {instanceID: 3948}
+      Script: {instanceID: 3176}
+    - Class: 114
+      Script: {instanceID: 3220}
+    - Class: 114
+      Script: {instanceID: 3222}
+    - Class: 114
+      Script: {instanceID: 3262}
+    - Class: 114
+      Script: {instanceID: 3272}
+    - Class: 114
+      Script: {instanceID: 3310}
+    - Class: 114
+      Script: {instanceID: 3402}
+    - Class: 114
+      Script: {instanceID: 3546}
+    - Class: 114
+      Script: {instanceID: 3548}
+    - Class: 114
+      Script: {instanceID: 3866}
+    - Class: 114
+      Script: {instanceID: 3874}
+    - Class: 114
+      Script: {instanceID: 3968}
     - Class: 114
       Script: {instanceID: 4102}
     - Class: 114
-      Script: {instanceID: 4148}
+      Script: {instanceID: 4126}
     - Class: 114
-      Script: {instanceID: 4152}
+      Script: {instanceID: 4172}
     - Class: 114
-      Script: {instanceID: 4188}
+      Script: {instanceID: 4176}
     - Class: 114
-      Script: {instanceID: 4462}
+      Script: {instanceID: 4212}
+    - Class: 114
+      Script: {instanceID: 4486}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -189,6 +225,12 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
+      Hash: 71d28047f3bef1df8c62fb323f5c04a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DoubleTap_Stat
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -207,7 +249,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Archer_Base
@@ -217,6 +259,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71d28047f3bef1df8c62fb323f5c04a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CrossHair_Stat
   - hash:
       serializedVersion: 2
       Hash: bcaee4c2a83047257b5f47d6ed264b75
@@ -255,7 +303,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CrossHair
@@ -273,10 +321,16 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Charger
+  - hash:
+      serializedVersion: 2
+      Hash: 71d28047f3bef1df8c62fb323f5c04a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Crowler_Stat
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -309,13 +363,19 @@ ScriptsOnlyBuild:
     className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
+      Hash: 71d28047f3bef1df8c62fb323f5c04a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Frowler_Stat
+  - hash:
+      serializedVersion: 2
       Hash: c1d728126ff1918728036c59106d32b2
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Cannonneer
@@ -333,7 +393,7 @@ ScriptsOnlyBuild:
     className: EnumerableTestState
   - hash:
       serializedVersion: 2
-      Hash: 24a732f2522f6371ad1df4ad4c22b674
+      Hash: 7f7da3e66e5f48658771650ac15de465
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StageManager
@@ -349,6 +409,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TurnManager
+  - hash:
+      serializedVersion: 2
+      Hash: 71d28047f3bef1df8c62fb323f5c04a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Shooter_Stat
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -465,13 +531,13 @@ ScriptsOnlyBuild:
     className: HandUI
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Artillery_Base
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DoubleTap
@@ -537,6 +603,12 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
+      Hash: 71d28047f3bef1df8c62fb323f5c04a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Grinder_Stat
+  - hash:
+      serializedVersion: 2
       Hash: b5d3eb98b0fcb2f64ab9ecfcc39c7f80
     assemblyName: DOTweenPro.Scripts.dll
     namespaceName: DG.Tweening
@@ -567,6 +639,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 71d28047f3bef1df8c62fb323f5c04a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Cannonneer_Stat
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -585,7 +663,7 @@ ScriptsOnlyBuild:
     className: DOTweenSettings
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Frowler
@@ -595,6 +673,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: BaseInput
+  - hash:
+      serializedVersion: 2
+      Hash: 71d28047f3bef1df8c62fb323f5c04a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Charger_Stat
   - hash:
       serializedVersion: 2
       Hash: cdeecdae6e6de55891f43bbccc61ef8e
@@ -621,13 +705,13 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
-      Hash: 6b1a3ce85c56f925f893b6e2b60c2796
+      Hash: 94a1b6f3b8b4357f94c59343ee6fb7f2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DeckSystem
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Warrior_Base
@@ -753,6 +837,12 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
+      Hash: 71d28047f3bef1df8c62fb323f5c04a3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player_Stat
+  - hash:
+      serializedVersion: 2
       Hash: a09eec154daeb1c769b815831ed1bab8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -765,7 +855,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Grinder
@@ -777,7 +867,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: 6a38d1b2cc403681e484607bdb2a5b12
+      Hash: f44dcc876447a5e96c005aadc8a64a22
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Characters
@@ -789,19 +879,19 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: e1bd879fee8b90949e28592dccc68068
+      Hash: 1da84a6d6b4c4629b0c522f4561c52e0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Shooter
   - hash:
       serializedVersion: 2
-      Hash: e406e73c60b03c47c2324df4e7565d0a
+      Hash: 48b35e6d320c372a5bb1313b8fe34406
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Crowler
@@ -838,4 +928,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/04Scenes/BattleScene7x7.unity
-  playerPath: C:/Users/sung9/Downloads/move_change.apk
+  playerPath: C:/Users/sung9/Downloads/1213.apk

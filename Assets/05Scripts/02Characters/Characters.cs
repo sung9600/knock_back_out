@@ -3,95 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Tilemaps;
 
-[System.Serializable]
-public class Pos
-{
-    public int x;
-    public int y;
-    public Pos(int x1, int y1)
-    {
-        this.x = x1;
-        this.y = y1;
-    }
-    public static Pos operator -(Pos first, Pos second)
-    {
-        return new Pos(first.x - second.x, first.y - second.y);
-    }
 
-    public static Pos operator +(Pos first, Pos second)
-    {
-        return new Pos(first.x + second.x, first.y + second.y);
-    }
-
-    public static Pos operator *(Pos pos, int i)
-    {
-        return new Pos(pos.x * i, pos.y * i);
-    }
-    public static Pos operator *(int i, Pos pos)
-    {
-        return new Pos(pos.x * i, pos.y * i);
-    }
-
-    public static bool equals(Pos first, Pos second)
-    {
-        return (first.x == second.x) && (first.y == second.y);
-    }
-
-    public override string ToString()
-    {
-        return x + ", " + y;
-    }
-
-    public static int getDir(Pos first, Pos second)
-    {
-        // 좌: 2
-        // 우: 3
-        // 상: 5
-        // 하: 7
-        // 아니면 11
-        Pos dir = second - first;
-        if (dir.x > 0)
-        {
-            return 3;
-        }
-        else if (dir.x < 0)
-        {
-            return 2;
-        }
-        else
-        {
-            if (dir.y > 0)
-            {
-                return 5;
-            }
-            else if (dir.y < 0)
-            {
-                return 7;
-            }
-        }
-        return 5;
-    }
-
-}
-[System.Serializable]
-public class Character_stat
-{
-    public int hp;
-    public int maxhp;
-    public int shield;
-    public int moverange;
-    public moveType moveType;
-
-    public Character_stat()
-    {
-        this.hp = 3;
-        this.maxhp = 3;
-        this.shield = 0;
-        this.moverange = 3;
-        this.moveType = moveType.ground;
-    }
-}
 public class Characters : MonoBehaviour
 {
 
@@ -101,25 +15,31 @@ public class Characters : MonoBehaviour
     public Character_type character_Type;
     public Pos curpos = new Pos(2, 2);
 
+    [SerializeField]
+    private GameObject[] attack_arrows;
+
     public void move(List<Pos> path)
     {
         StartCoroutine(move_c(path));
     }
     IEnumerator move_c(List<Pos> path)
     {
-        MapManager.mapManager.map[curpos.x, curpos.y] &= 0x3fffffff;
         for (int i = 0; i < path.Count; i++)
         {
+            Debug.Log("path: " + path[i]);
             GetComponent<RectTransform>().anchoredPosition
                 = Camera.main.WorldToScreenPoint(MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(new Vector3Int(path[i].x, path[i].y, 0))) + Constants.character_tile_offset;
             yield return new WaitForSeconds(0.2f);
         }
-        curpos = path[path.Count - 1];
-        ChangeMapByte();
+        ChangeMapByte(curpos, path[path.Count - 1]);
         MoveButtons.nav_on = false;
         status = Character_status.waiting;
-        if (gameObject.GetComponent<Player>() != null)
+        if (character_Type == Character_type.player)
             StageManager.stageManager.stage = StageStatus.DEFAULT;
+        else if (character_Type == Character_type.enemy)
+        {
+            GetComponent<Enemy>().Warning();
+        }
         yield break;
     }
     private bool flip;
@@ -130,11 +50,14 @@ public class Characters : MonoBehaviour
         return animator;
     }
 
+
     public virtual void init(Pos pos) { }
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+
     }
 
     public void changeStatus()
@@ -166,10 +89,7 @@ public class Characters : MonoBehaviour
 
             if (!MapManager.checkCantGoTile(nx, ny, stat.moveType == moveType.ground))
             {
-                MapManager.mapManager.map[curpos.x, curpos.y] &= 0x3fffffff;
-                curpos.x = nx;
-                curpos.y = ny;
-                ChangeMapByte();
+                ChangeMapByte(curpos, new Pos(nx, ny));
             }
             else
             {
@@ -183,6 +103,13 @@ public class Characters : MonoBehaviour
 
     public void ChangeMapByte()
     {
+        MapManager.mapManager.map[curpos.x, curpos.y] |= 0x40000000;
+    }
+
+    public void ChangeMapByte(Pos current, Pos aftermove)
+    {
+        MapManager.mapManager.map[curpos.x, curpos.y] &= 0x3f00ffff;
+        curpos = aftermove;
         MapManager.mapManager.map[curpos.x, curpos.y] |= 0x40000000;
     }
 

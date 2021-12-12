@@ -10,6 +10,7 @@ public class EnemyMove : Phases
         enemies = FindObjectsOfType<Enemy>();
         TurnManager.turnManager.indicator.SetText("enemy move phase");
         TurnManager.turnManager.phase = phase.enemy_move;
+        StageManager.stageManager.attackList.Reset();
     }
     public override bool IsComplete()
     {
@@ -25,8 +26,8 @@ public class EnemyMove : Phases
         while (i > 0)
         {
             int idx = Random.Range(0, 16);
-            int[] x = { 0, 1, 2, 3, 4, 0, 4, 0, 4, 0, 4, 0, 1, 2, 3, 4 };
-            int[] y = { 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 4, 4 };
+            int[] x = { 0, 1, 2, 3, 4, 5, 6, 0, 6, 0, 6, 0, 6, 6, 6, 0, 1, 2, 3, 4, 5, 6 };
+            int[] y = { 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6 };
             Pos pos = new Pos(x[idx], y[idx]);
             if (!MapManager.checkCantGoTile(pos.x, pos.y, true))
             {

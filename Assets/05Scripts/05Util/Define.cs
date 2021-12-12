@@ -22,6 +22,13 @@ public enum moveType
     end
 }
 
+public enum atkType
+{
+    melee,
+    direct,
+    indirect
+}
+
 public enum CardType
 {
     Attack_near,
@@ -57,7 +64,7 @@ static class Constants
     public static int[] dx = { -1, 1, 0, 0 };
     public static int[] dy = { 0, 0, -1, 1 };
 
-    public static Vector3 character_tile_offset { get { return Vector3.up * 66; } }
+    public static Vector3 character_tile_offset { get { return Vector3.up * 91; } }
 }
 
 public enum phase

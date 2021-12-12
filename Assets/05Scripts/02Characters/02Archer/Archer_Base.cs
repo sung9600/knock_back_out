@@ -5,46 +5,36 @@ using UnityEngine;
 public class Archer_Base : Enemy
 {
 
-    public override void init(Pos pos)
-    {
-        //Debug.Log("archer init");
-        targets.Add(StageManager.stageManager.GetPlayer());
-        curpos = pos;
-        ChangeMapByte();
-        //Debug.Log(curpos.x + "," + curpos.y + ":" + MapManager.mapManager.map[curpos.x, curpos.y]);
-    }
     public override void SetTarget()
     {
         //Debug.Log("arc settarget");
         atk_target = null;
         atk_dir = null;
-        List<(Pos, int)> candid_pos = new List<(Pos, int)>();
+        List<(Pos, int, int)> candid_pos = new List<(Pos, int, int)>();
         foreach (Characters target in targets)
         {
             Pos target_position = target.curpos;
             for (int index = 0; index < 4; index++)
             {
-                for (int i = 1; i < 5; i++)
+                for (int i = 1; i < Constants.mapHeight; i++)
                 {
                     int nx = target_position.x + i * Constants.dx[index];
                     int ny = target_position.y + i * Constants.dy[index];
-                    if (nx == curpos.x && ny == curpos.y)
-                    {
-                        candid_pos.Add((new Pos(nx, ny), targets.IndexOf(target)));
-                    }
-                    else if (MapManager.checkWidthHeight(nx, ny) && !MapManager.checkCantGoTile(nx, ny, stat.moveType == moveType.ground))
-                    {
-                        candid_pos.Add((new Pos(nx, ny), targets.IndexOf(target)));
-                    }
+                    if (!MapManager.checkWidthHeight(nx, ny)) break;
+                    if ((MapManager.groundInfo(nx, ny) & 1 << 6) == 1) continue;
+                    if (MapManager.checkCantGoTile(nx, ny, stat.moveType == moveType.ground)) break;
+                    candid_pos.Add((new Pos(nx, ny), targets.IndexOf(target), i));
                 }
             }
         }
         List<Pos> final_path = new List<Pos>();
-        foreach ((Pos, int) element in candid_pos)
+        int cur = -1;
+        foreach ((Pos, int, int) element in candid_pos)
         {
+            Debug.Log(element.Item1);
             if (curpos.x == element.Item1.x && curpos.y == element.Item1.y)
             {
-                //Debug.Log("arc " + element.Item1.x + "," + element.Item1.y + " already");
+                Debug.Log("break");
                 final_path = null;
                 atk_target = targets[element.Item2];
                 break;
@@ -60,13 +50,25 @@ public class Archer_Base : Enemy
             {
                 if (atk_target == null)
                 {
+                    cur = element.Item3;
                     atk_target = targets[element.Item2];
                     final_path = path;
                 }
-                else if (Random.Range(0, 10) < 5)
+                else if (element.Item3 > cur)
                 {
+                    cur = element.Item3;
                     atk_target = targets[element.Item2];
                     final_path = path;
+                }
+                else if (element.Item3 == cur)
+                {
+
+                    if (Random.Range(0, 10) < 5)
+                    {
+                        cur = element.Item3;
+                        atk_target = targets[element.Item2];
+                        final_path = path;
+                    }
                 }
             }
         }
@@ -77,24 +79,21 @@ public class Archer_Base : Enemy
         }
         else
         {
+            atk_dir = atk_target.curpos - curpos;
             if (final_path != null)
             {
                 move(final_path);
-                Invoke("Warning", (final_path.Count + 1) * 0.2f);
             }
             else
-                Invoke("Warning", 0.5f);
+            {
+                Warning();
+            }
+            StageManager.stageManager.attackList.attackList.Add(new AttackCommand(atk_target.curpos, curpos, this));
         }
 
         if (!turn_done) turn_done = true;
     }
-    public override void Warning()
-    {
-        if (atk_target == null) return;
-        atk_dir = atk_target.curpos - curpos;
-        /// 이거를 타일로 표시하는거 말고 indicator ( 화살표? )로 표시할수 있도록 바꿔야할듯
-        warning_pos = new Pos(curpos.x + atk_dir.x, curpos.y + atk_dir.y);
-    }
+
     public virtual void attack()
     {
         if (atk_dir == null) { turn_done = true; return; }

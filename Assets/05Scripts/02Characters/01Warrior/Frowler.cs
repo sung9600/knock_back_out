@@ -9,6 +9,7 @@ public class Frowler : Warrior_Base
     public void set_can_divide(bool set) { can_Divide = set; }
     public override void Skill()
     {
+        Debug.Log("skill");
         if (can_Divide)
         {
             int target_hp = stat.hp / 2;
@@ -16,10 +17,10 @@ public class Frowler : Warrior_Base
 
             // get random empty position
             // + instantiate clone
-            
+
             for (int i = 0; i < 4; i++)
             {
-                
+
 
             }
 

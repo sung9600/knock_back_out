@@ -23,19 +23,21 @@ public class MapManager : MonoBehaviour
         }
     }
     [SerializeField]
-    private Tilemap[] tilemaps;// base_tile, nav_tile, warning_tile, env_back_tile, env_front_tile, path_navigation_tile;
+    private Tilemap[] tilemaps;// base_tile, nav_tile, warning_tile, env_back_tile, env_front_tile, path_navigation_tile,Direct_X,Direct_Y;
     public Tilemap GetTilemap(int idx)
     {
         return tilemaps[idx];
     }
     [SerializeField]
     private Array2d<TileBase>[] map_tiles;
-    // 포자 풀 돌 물 base1 navigation warning enemy_coming
-    // smoke front  8
-    // smoke back   8 
-    // fire front   8
-    // fire back    8
-    // move Lines   :  start 4(2 5 7 11) -> 6(25, 27, 57, 112, 511, 711) 
+    // 0-포자 풀 돌 물 base1 navigation warning enemy_coming
+    // 1-smoke front  8
+    // 2-smoke back   8 
+    // 3-fire front   8
+    // 4-fire back    8
+    // 5-move Lines   :  start 4(2 5 7 11) -> 6(25, 27, 57, 112, 511, 711) 
+    // 6-melee arrows : 1 5 7 11
+    // 7-direct arrows: x, y
     public TileBase GetTile(int idx1, int idx2)
     {
         return map_tiles[idx1].data[idx2];
@@ -87,6 +89,7 @@ public class MapManager : MonoBehaviour
                 }
                 else
                 {
+                    //물타일
                     tilemaps[0].SetTile(pos, map_tiles[0].data[3]);
                 }
             }
@@ -119,13 +122,15 @@ public class MapManager : MonoBehaviour
         map = new int[Constants.mapWidth, Constants.mapHeight];
         MapGenerator.makeMap(map);
         drawBases(map);
-        // for (int i = 0; i < 5; i++)
-        // {
-        //     for (int j = 0; j < 5; j++)
-        //     {
-        //         Debug.Log(i + "," + j + ":" + tilemaps[0].GetCellCenterWorld(new Vector3Int(i, j, 0)));
-        //     }
-        // }
+        for (int i = 0; i < Constants.mapHeight; i++)
+        {
+            for (int j = 0; j < Constants.mapHeight; j++)
+            {
+                if (map[i, j] == (int)tileType.water) map[i, j] = 1 << 6;
+                if (map[i, j] == (int)tileType.rock) map[i, j] = 1 << 7;
+                Debug.Log(i + "," + j + ":" + map[i, j]);
+            }
+        }
     }
 
     #region navigation
@@ -167,6 +172,7 @@ public class MapManager : MonoBehaviour
                     int yy = y + Constants.dy[i];
 
                     if (!checkWidthHeight(xx, yy)) continue;
+                    if (isRockTile(xx, yy)) continue;
                     if (checkCantGoTile(xx, yy, moveType == moveType.ground)) continue;
                     if (dist[xx, yy] > val + 1)
                     {
@@ -348,14 +354,50 @@ public class MapManager : MonoBehaviour
         {
             return true;
         }
-        if (!isPassibleTile(x, y))
+        if (isWaterTile(x, y)) return groundUnit;
+        if ((isRockTile(x, y))) return true;
+        return false;
+        // if (!isEmptyTile(x, y))
+        // {
+        //     return true;
+        // }
+        // if (!isPassibleTile(x, y))
+        // {
+        //     return groundUnit;
+        // }
+        // return false;
+    }
+    public static bool checkCantGoTile(Pos p, bool groundUnit)
+    {
+        if (!isEmptyTile(p.x, p.y))
         {
-            return groundUnit;
+            return true;
         }
+        if (isWaterTile(p.x, p.y)) return groundUnit;
+        if ((isRockTile(p.x, p.y))) return true;
+        return false;
+        // if (!isEmptyTile(p.x, p.y))
+        // {
+        //     return true;
+        // }
+        // if (!isPassibleTile(p.x, p.y))
+        // {
+        //     return groundUnit;
+        // }
+        // return false;
+    }
+
+    public static bool isRockTile(int x, int y)
+    {
+        if ((mapManager.map[x, y] & 1 << 7) == 1 << 7) return true;
+        return false;
+    }
+    public static bool isWaterTile(int x, int y)
+    {
+        if ((mapManager.map[x, y] & 1 << 6) == 1 << 6) return true;
         return false;
     }
 
-    //abc
     public static bool isEmptyTile(int x, int y)
     {
         // 비어있는지 return
@@ -423,27 +465,34 @@ public class MapManager : MonoBehaviour
         else
         {
             // 0~1
-            int dir = Pos.getDir(path[0], path[1]);
-            switch (dir)
+            Pos dir = Pos.getDir(path[0], path[1]);
+
+            if (dir.y == 0)
             {
-                case 2:
-                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[2]);
-                    break;
-                case 3:
+                if (dir.x > 0)
+                {
                     mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[0]);
-                    break;
-                case 5:
-                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[3]);
-                    break;
-                case 7:
-                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[1]);
-                    break;
+                }
+                else if (dir.x < 0)
+                {
+                    mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[2]);
+                }
+            }
+            else if (dir.y > 0)
+            {
+                mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[3]);
+            }
+            else
+            {
+
+                mapManager.tilemaps[5].SetTile(new Vector3Int(path[0].x, path[0].y, 0), mapManager.map_tiles[5].data[1]);
             }
             // 1~끝-1
+            int multiply_result;
             for (int i = 1; i < count - 1; i++)
             {
-                dir = Pos.getDir(path[i], path[i - 1]) * Pos.getDir(path[i], path[i + 1]);
-                switch (dir)
+                multiply_result = Pos.getDir2(path[i], path[i - 1]) * Pos.getDir2(path[i], path[i + 1]);
+                switch (multiply_result)
                 {
                     case 6:
                         mapManager.tilemaps[5].SetTile(new Vector3Int(path[i].x, path[i].y, 0), mapManager.map_tiles[5].data[5]);
@@ -466,8 +515,8 @@ public class MapManager : MonoBehaviour
                 }
             }
             //끝-1~끝
-            dir = Pos.getDir(path[count - 1], path[count - 2]);
-            switch (dir)
+            multiply_result = Pos.getDir2(path[count - 1], path[count - 2]);
+            switch (multiply_result)
             {
                 case 2:
                     mapManager.tilemaps[5].SetTile(new Vector3Int(path[count - 1].x, path[count - 1].y, 0), mapManager.map_tiles[5].data[2]);

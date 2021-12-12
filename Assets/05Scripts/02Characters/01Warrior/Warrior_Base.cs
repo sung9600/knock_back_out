@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class Warrior_Base : Enemy
 {
-    public override void init(Pos pos)
-    {
-        //Debug.Log("war init");
-        targets.Add(StageManager.stageManager.GetPlayer());
-        curpos = pos;
-        ChangeMapByte();
-        //Debug.Log(curpos.x + "," + curpos.y + ":" + MapManager.mapManager.map[curpos.x, curpos.y]);
-    }
     public override void SetTarget()
     {
         //Debug.Log("war settarget");
@@ -78,7 +70,6 @@ public class Warrior_Base : Enemy
         }
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
         if (atk_target == null)
         {
             // 공격가능 상대 없음
@@ -86,24 +77,19 @@ public class Warrior_Base : Enemy
         }
         else
         {
+            atk_dir = atk_target.curpos - curpos;
             if (final_path != null)
             {
                 move(final_path);
-                Invoke("Warning", (final_path.Count + 1) * 0.2f);
             }
             else
                 Invoke("Warning", 0.5f);
+
+            StageManager.stageManager.attackList.attackList.Add(new AttackCommand(atk_target.curpos, curpos, this));
+
         }
 
         if (!turn_done) turn_done = true;
-    }
-    public override void Warning()
-    {
-        if (atk_target == null) return;
-        atk_dir = atk_target.curpos - curpos;
-        /// 이거를 타일로 표시하는거 말고 indicator ( 화살표? )로 표시할수 있도록 바꿔야할듯
-        warning_pos = new Pos(curpos.x + atk_dir.x, curpos.y + atk_dir.y);
-        MapManager.mapManager.GetTilemap(2).SetTile(new Vector3Int(curpos.x + atk_dir.x, curpos.y + atk_dir.y, 0), MapManager.mapManager.GetTile(0, 6));
     }
 
     public virtual void attack()

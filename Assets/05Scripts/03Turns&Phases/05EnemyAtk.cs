@@ -13,18 +13,31 @@ public class EnemyAtk : Phases
     }
     public override bool IsComplete()
     {
-        foreach (Enemy enemy in enemies)
+        // foreach (Enemy enemy in enemies)
+        // {
+        //     if (!enemy.turn_done)
+        //     {
+        //         enemy.Attack_animation();
+        //         return false;
+        //     }
+        // }
+
+        foreach (AttackCommand atkc in StageManager.stageManager.attackList.attackList)
         {
-            if (!enemy.turn_done)
+            // 누가 공격했는지 찾고
+            if (atkc.Attacker != null)
             {
-                enemy.Attack_animation();
+                // 그 사람이 atk dir에 현재위치 더한곳 공격
+                atkc.Attacker.Attack_animation();
+                StageManager.stageManager.attackList.attackList.Remove(atkc);
                 return false;
             }
         }
 
-        for (int i = 0; i < 5; i++)
+
+        for (int i = 0; i < Constants.mapHeight; i++)
         {
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < Constants.mapHeight; j++)
             {
                 Vector3Int pos = new Vector3Int(i, j, 0);
                 if (MapManager.mapManager.GetTilemap(2).GetTile(pos) == MapManager.mapManager.GetTile(0, 7))
@@ -38,7 +51,8 @@ public class EnemyAtk : Phases
                         , StageManager.stageManager.getCharacterCanvas());
                     go.GetComponent<RectTransform>().anchoredPosition = Constants.character_tile_offset + Camera.main.WorldToScreenPoint(MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(pos));
                     go.GetComponent<Enemy>().init(new Pos(i, j));
-                    i--;
+                    go.name = StageManager.stageManager.getEnemy_Prefab_byIndex(index).name + StageManager.stageManager.character_count;
+                    StageManager.stageManager.character_count++;
                     return false;
                 }
             }

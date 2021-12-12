@@ -36,18 +36,23 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\DoubleTap_Stat.cs" />
      <Compile Include="Assets\05Scripts\06Deck&amp;Hand\CardUI.cs" />
      <Compile Include="Assets\05Scripts\02Characters\02Archer\Archer_Base.cs" />
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\CrossHair_Stat.cs" />
      <Compile Include="Assets\05Scripts\02Characters\03Artillery\CrossHair.cs" />
      <Compile Include="Assets\05Scripts\05Util\MapGenerator.cs" />
      <Compile Include="Assets\05Scripts\05Util\Define.cs" />
      <Compile Include="Assets\05Scripts\02Characters\02Archer\Charger.cs" />
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\Crowler_Stat.cs" />
      <Compile Include="Assets\05Scripts\GameManager.cs" />
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\Frowler_Stat.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\01MapGimmik.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\03EnemyMove.cs" />
      <Compile Include="Assets\05Scripts\02Characters\03Artillery\Cannonneer.cs" />
      <Compile Include="Assets\05Scripts\01Manager\StageManager.cs" />
      <Compile Include="Assets\05Scripts\01Manager\TurnManager.cs" />
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\Shooter_Stat.cs" />
      <Compile Include="Assets\05Scripts\04UI\Cost.cs" />
      <Compile Include="Assets\05Scripts\parabola.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\Turns.cs" />
@@ -60,16 +65,23 @@
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\PlayerSetTurn.cs" />
      <Compile Include="Assets\05Scripts\06Deck&amp;Hand\CardInfo.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\05EnemyAtk.cs" />
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\Grinder_Stat.cs" />
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\Character_Stat.cs" />
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\Cannonneer_Stat.cs" />
      <Compile Include="Assets\05Scripts\02Characters\01Warrior\Frowler.cs" />
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\Charger_Stat.cs" />
      <Compile Include="Assets\05Scripts\01Manager\MapManager.cs" />
      <Compile Include="Assets\05Scripts\06Deck&amp;Hand\DeckSystem.cs" />
      <Compile Include="Assets\05Scripts\02Characters\01Warrior\Warrior_Base.cs" />
      <Compile Include="Assets\05Scripts\06Deck&amp;Hand\CardsPanel.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\04PlayerPhase.cs" />
      <Compile Include="Assets\05Scripts\04UI\TurnEndButton.cs" />
+     <Compile Include="Assets\05Scripts\04UI\Big_Card_Panel.cs" />
      <Compile Include="Assets\05Scripts\02Characters\Enemy.cs" />
      <Compile Include="Assets\05Scripts\01Manager\InputManager.cs" />
+     <Compile Include="Assets\05Scripts\02Characters\Character_Stat\Player_Stat.cs" />
      <Compile Include="Assets\05Scripts\04UI\Big_Card.cs" />
+     <Compile Include="Assets\05Scripts\05Util\Pos.cs" />
      <Compile Include="Assets\05Scripts\02Characters\02Archer\Grinder.cs" />
      <Compile Include="Assets\05Scripts\02Characters\Characters.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\Phases.cs" />
@@ -79,7 +91,7 @@
      <Compile Include="Assets\05Scripts\04UI\Buttons.cs" />
      <Compile Include="Assets\05Scripts\04UI\MoveButtons.cs" />
      <Compile Include="Assets\05Scripts\03Turns&amp;Phases\02DrawPhase.cs" />
-     <Compile Include="Assets\05Scripts\04UI\Big_Card_Panel.cs" />
+     <Compile Include="Assets\05Scripts\05Util\AttackCommand.cs" />
      <None Include="Assets\+Etc\Imports\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\+Etc\Imports\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\+Etc\Imports\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

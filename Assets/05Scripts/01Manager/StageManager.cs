@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-
+    #region variables & attributes
     private static StageManager instance = null;
     public static StageManager stageManager
     {
@@ -87,6 +87,36 @@ public class StageManager : MonoBehaviour
         }
         return null;
     }
+    public Characters GetCharacterByPos(Pos pos)
+    {
+        foreach (Characters character in characters)
+        {
+            if (Pos.equals(character.curpos, pos)) return character;
+        }
+        return null;
+    }
+
+    public Characters GetEnemyByID(int id)
+    {
+        foreach (Characters characters in characters)
+        {
+            Enemy enemy = characters.GetComponent<Enemy>();
+            if (enemy != null && enemy.id == id)
+            {
+                return characters;
+            }
+        }
+        return null;
+    }
+
+    public int character_count = 0;
+
+    #endregion
+
+    public AttackList attackList = new AttackList();
+
+
+
     private void Awake()
     {
         if (instance == null)
@@ -105,9 +135,23 @@ public class StageManager : MonoBehaviour
         {
             if (o.GetComponent<Enemy>() != null)
             {
+                Debug.Log(o.name);
                 enemy_prefabs.Add(o);
             }
         }
+    }
+    private void Start()
+    {
+
+        // for (int i = 0; i < 7; i++)
+        // {
+        //     for (int j = 0; j < 7; j++)
+        //     {
+        //         Vector3 a = MapManager.mapManager.GetTilemap(0).GetCellCenterWorld(new Vector3Int(i, j, 0));
+        //         Vector3 b = Camera.main.WorldToScreenPoint(a);
+        //         Debug.Log(string.Format("{0},{1}: {2} /// {3}", i, j, a, b));
+        //     }
+        // }
     }
 
     private void LateUpdate()

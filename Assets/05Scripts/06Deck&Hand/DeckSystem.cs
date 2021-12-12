@@ -37,7 +37,6 @@ public class DeckSystem : MonoBehaviour
         deckTemp = ExceptDeck.ToList();
         ExceptDeck.Clear();
         int n = deckTemp.Count;
-        Debug.Log("n:" + n);
         for (int i = n - 1; i > 0; i--)
         {
             int random = UnityEngine.Random.Range(0, i);
