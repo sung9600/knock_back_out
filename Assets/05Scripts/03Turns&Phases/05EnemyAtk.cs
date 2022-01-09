@@ -13,28 +13,14 @@ public class EnemyAtk : Phases
     }
     public override bool IsComplete()
     {
-        // foreach (Enemy enemy in enemies)
-        // {
-        //     if (!enemy.turn_done)
-        //     {
-        //         enemy.Attack_animation();
-        //         return false;
-        //     }
-        // }
-
-        foreach (AttackCommand atkc in StageManager.stageManager.attackList.attackList)
+        if (Every_Enemy_Attack() == false)
         {
-            // 누가 공격했는지 찾고
-            if (atkc.Attacker != null)
-            {
-                // 그 사람이 atk dir에 현재위치 더한곳 공격
-                atkc.Attacker.Attack_animation();
-                StageManager.stageManager.attackList.attackList.Remove(atkc);
-                return false;
-            }
+            return false;
         }
 
-
+        // 지금은 경고타일이면 해당타일에 랜덤 생성인데
+        // 타일에 어떤 타입이 생성될지를 저장해놓는걸 mapmanager에 만들어놓고
+        // 해당 타입 읽어와서 생성하는거로 바꿔야할듯
         for (int i = 0; i < Constants.mapHeight; i++)
         {
             for (int j = 0; j < Constants.mapHeight; j++)
@@ -56,11 +42,27 @@ public class EnemyAtk : Phases
                     return false;
                 }
             }
-
         }
         enemies = FindObjectsOfType<Enemy>();
         foreach (Enemy enemy in enemies)
             enemy.turn_done = false;
+        return true;
+    }
+
+
+    private bool Every_Enemy_Attack()
+    {
+        foreach (AttackCommand atkc in StageManager.stageManager.attackList.attackList)
+        {
+            // 누가 공격했는지 찾고
+            if (atkc.Attacker != null)
+            {
+                // 그 사람이 atk dir에 현재위치 더한곳 공격
+                atkc.Attacker.Attack_animation();
+                StageManager.stageManager.attackList.attackList.Remove(atkc);
+                return false;
+            }
+        }
         return true;
     }
 }

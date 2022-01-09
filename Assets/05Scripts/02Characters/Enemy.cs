@@ -167,11 +167,13 @@ public abstract class Enemy : Characters
 
     public override void init(Pos pos)
     {
+        base.init(pos);
         //Debug.Log("war init");
         id = static_id++;
         targets.Add(StageManager.stageManager.GetPlayer());
         curpos = pos;
         ChangeMapByte();
+        indicators_Controller.UpdateHP(stat.maxhp, stat.hp);
         //Debug.Log(curpos.x + "," + curpos.y + ":" + MapManager.mapManager.map[curpos.x, curpos.y]);
     }
 }

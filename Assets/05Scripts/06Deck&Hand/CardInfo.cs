@@ -3,22 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[System.Serializable]
-public class CardInfo
+[CreateAssetMenu(menuName = "ScriptableObject/CardInfo", fileName = "Card", order = 0)]
+public class CardInfo : ScriptableObject
 {
-    public static int card_num = 1;
-    public string name;
+    public int Card_Type_Num;
+    public static int Card_num = 1;
+    public string Card_name;
+    public string Card_detail;
     [SerializeField]
-    public CardType type;
-    public int Cost = 1;
-    public int Range = 3;
+    public CardType Card_type;
+    public int Card_Cost = 1;
     public int ID = 0;
+
+    public Sprite[] card_Sprites;
+    // 일러스트 , 베이스 , 속성1 , 속성2
     public CardInfo(int a)
     {
-        ID = card_num++;
-        name = "card" + ID;
-        type = CardType.Attack_indirect;
-        Cost = 1;
+        ID = Card_num++;
+        Card_name = "card" + ID;
+        Card_type = CardType.Attack_indirect;
+        Card_Cost = 1;
     }
 
     public CardInfo()

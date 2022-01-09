@@ -27,7 +27,7 @@ public class Player : Characters
     {
         List<Pos> tiles = new List<Pos>();
         usedcard = info;
-        switch (info.cardInfo.type)
+        switch (info.cardInfo.Card_type)
         {
             case CardType.Attack_near:
                 for (int i = 0; i < 4; i++)
@@ -103,9 +103,12 @@ public class Player : Characters
     {
         //  PARENT인 CHARACTERS의 AWAKE에서 호출됨
         //  TODO: 여기에서 플레이어 정보 받아오는거 하면 될듯?
+
+        base.init(pos);
         moverange = stat.moverange;
         remain_move = moverange;
         MapManager.mapManager.map[curpos.x, curpos.y] |= 0x40000000;
+        indicators_Controller.UpdateHP(stat.maxhp, stat.hp);
     }
     private void Start()
     {

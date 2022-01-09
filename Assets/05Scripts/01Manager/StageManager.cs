@@ -47,6 +47,23 @@ public class StageManager : MonoBehaviour
         }
         return null;
     }
+    private Dictionary<string, CardInfo> cardOriginals = new Dictionary<string, CardInfo>();
+
+    public CardInfo getCardOriginalByName(string name)
+    {
+        CardInfo cardInfo;
+        if (cardOriginals.TryGetValue(name, out cardInfo))
+            return cardInfo;
+        return null;
+    }
+    public CardInfo getCardOriginalByNum(int num)
+    {
+        foreach (KeyValuePair<string, CardInfo> pair in cardOriginals)
+        {
+            if (pair.Value.Card_Type_Num == num) return pair.Value;
+        }
+        return null;
+    }
     [SerializeField]
     private Transform CharacterCanvas = null;
     public Transform getCharacterCanvas() { return CharacterCanvas; }
@@ -135,9 +152,15 @@ public class StageManager : MonoBehaviour
         {
             if (o.GetComponent<Enemy>() != null)
             {
-                Debug.Log(o.name);
+                Debug.Log("add enemy to list " + o.name);
                 enemy_prefabs.Add(o);
             }
+        }
+        CardInfo[] SOs = Resources.LoadAll<CardInfo>("ScriptableObject/CardInfo");
+        foreach (CardInfo so in SOs)
+        {
+            Debug.Log(so.Card_name + so.Card_Type_Num);
+            cardOriginals.Add(so.Card_name, so);
         }
     }
     private void Start()

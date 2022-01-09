@@ -23,7 +23,9 @@ public class DrawPhase : Phases
         for (int i = 0; i < n; i++)
         {
             GameObject card = Instantiate(StageManager.stageManager.getCardPrefab(), StageManager.stageManager.getHand());
-            card.GetComponent<CardUI>().cardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
+            CardInfo tempCardInfo = DeckSystem.deckSystem.DrawCardFromDeck();
+            if (tempCardInfo == null) Debug.Log("null draw");
+            card.GetComponent<CardUI>().cardInfo = tempCardInfo;
             card.GetComponent<CardUI>().cardInfoUI();
         }
         StageManager.stageManager.getHand().GetComponent<HandUI>().setWidth();

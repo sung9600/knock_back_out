@@ -15,6 +15,7 @@ public class DeckSystem : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI[] DeckTexts; // 덱 , 제외덱 , 무덤덱
 
+
     private void Awake()
     {
         if (deckSystem == null)
@@ -23,12 +24,29 @@ public class DeckSystem : MonoBehaviour
     private void Start()
     {
 
-        for (int i = 0; i < 30; i++)
-        {
-            CardInfo cardInfo = new CardInfo(0);
-            ExceptDeck.Add(cardInfo);
-        }
-        //ShuffleDeck();
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(51));
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(51));
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(24));
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(24));
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(2));
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(2));
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(2));
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(2));
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(30));
+        ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(42));
+
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(51));
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(51));
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(24));
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(24));
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(2));
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(2));
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(2));
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(2));
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(30));
+        // ExceptDeck.Add(StageManager.stageManager.getCardOriginalByNum(42));
+
+        ShuffleDeck();
     }
 
     public void ShuffleDeck()

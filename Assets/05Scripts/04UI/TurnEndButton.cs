@@ -19,6 +19,7 @@ public class TurnEndButton : Buttons
         MapManager.mapManager.clearNavTiles(1);
         DeckSystem.deckSystem.clearHand();
         player_turn_done = true;
+        StageManager.stageManager.inputManager.get_lineon(false);
         StageManager.stageManager.stage = StageStatus.CANNOT_TOUCH;
     }
 }

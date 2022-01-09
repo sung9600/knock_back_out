@@ -95,3 +95,21 @@ public enum StageStatus
     DEFAULT
 
 }
+
+
+public enum card_Type1
+{
+    skill,
+    attack,
+    debuff
+}
+
+public enum card_Type2
+{
+    myself,
+    melee,
+    direct,
+    indirect,
+    charge,
+    cant
+}

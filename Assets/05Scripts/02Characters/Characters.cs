@@ -50,14 +50,18 @@ public class Characters : MonoBehaviour
         return animator;
     }
 
+    protected Character_Indicators_Controller indicators_Controller;
 
-    public virtual void init(Pos pos) { }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public virtual void init(Pos pos)
+    {
+        indicators_Controller.Init();
+    }
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-
-
+        indicators_Controller = GetComponent<Character_Indicators_Controller>();
     }
 
     public void changeStatus()

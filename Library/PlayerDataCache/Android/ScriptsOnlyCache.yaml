@@ -3,12 +3,16 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Big_Card
     - Big_Card_Panel
+    - Cannonneer
     - Cannonneer_Stat
+    - CardInfo
     - CardUI
     - CardsPanel
+    - Character_Indicators_Controller
     - Charger
     - Charger_Stat
     - Cost
+    - CrossHair
     - CrossHair_Stat
     - Crowler
     - Crowler_Stat
@@ -37,7 +41,6 @@ ScriptsOnlyBuild:
     - DG.Tweening.DOTweenAnimation
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
-    - UnityEditor.Tilemaps.GridBrushEditor
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
     - UnityEditor.Tilemaps.GridPaintPaletteWindow
     - UnityEditor.Tilemaps.GridPaintingState
@@ -74,6 +77,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.Slider
+    - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
     Assets/04Scenes/BattleScene7x7.unity:
     - Class: 1
@@ -113,7 +119,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1616}
     - Class: 114
+      Script: {instanceID: 1672}
+    - Class: 114
       Script: {instanceID: 1682}
+    - Class: 114
+      Script: {instanceID: 1716}
     - Class: 114
       Script: {instanceID: 1750}
     - Class: 114
@@ -124,6 +134,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 2022}
     - Class: 114
       Script: {instanceID: 2150}
+    - Class: 114
+      Script: {instanceID: 2224}
     - Class: 114
       Script: {instanceID: 2280}
     - Class: 114
@@ -153,45 +165,53 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2892}
     - Class: 114
-      Script: {instanceID: 3042}
+      Script: {instanceID: 2914}
     - Class: 114
-      Script: {instanceID: 3058}
+      Script: {instanceID: 3032}
     - Class: 114
-      Script: {instanceID: 3176}
+      Script: {instanceID: 3044}
     - Class: 114
-      Script: {instanceID: 3220}
+      Script: {instanceID: 3060}
+    - Class: 114
+      Script: {instanceID: 3174}
+    - Class: 114
+      Script: {instanceID: 3178}
     - Class: 114
       Script: {instanceID: 3222}
     - Class: 114
-      Script: {instanceID: 3262}
+      Script: {instanceID: 3224}
     - Class: 114
-      Script: {instanceID: 3272}
+      Script: {instanceID: 3264}
     - Class: 114
-      Script: {instanceID: 3310}
+      Script: {instanceID: 3274}
     - Class: 114
-      Script: {instanceID: 3402}
+      Script: {instanceID: 3312}
     - Class: 114
-      Script: {instanceID: 3546}
+      Script: {instanceID: 3404}
     - Class: 114
       Script: {instanceID: 3548}
     - Class: 114
-      Script: {instanceID: 3866}
+      Script: {instanceID: 3550}
     - Class: 114
-      Script: {instanceID: 3874}
+      Script: {instanceID: 3630}
     - Class: 114
-      Script: {instanceID: 3968}
+      Script: {instanceID: 3870}
     - Class: 114
-      Script: {instanceID: 4102}
+      Script: {instanceID: 3878}
     - Class: 114
-      Script: {instanceID: 4126}
+      Script: {instanceID: 3972}
     - Class: 114
-      Script: {instanceID: 4172}
+      Script: {instanceID: 4106}
+    - Class: 114
+      Script: {instanceID: 4130}
     - Class: 114
       Script: {instanceID: 4176}
     - Class: 114
-      Script: {instanceID: 4212}
+      Script: {instanceID: 4180}
     - Class: 114
-      Script: {instanceID: 4486}
+      Script: {instanceID: 4216}
+    - Class: 114
+      Script: {instanceID: 4490}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -237,7 +257,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 5518b71bbb1f7dbd50bb4cae9e0a80f4
+      Hash: 4b1c926631ae52c23728ecb22080317d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CardUI
@@ -585,6 +605,12 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 7ffff53ad117cfcd6ea92c5661c53abf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardInfo
+  - hash:
+      serializedVersion: 2
       Hash: 633b7a21a07e2e848df526bbef0edc40
     assemblyName: DOTweenPro.dll
     namespaceName: DG.Tweening
@@ -601,6 +627,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 90b410e3583a829cd3d48fb0cd71c441
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Character_Indicators_Controller
   - hash:
       serializedVersion: 2
       Hash: 71d28047f3bef1df8c62fb323f5c04a3
@@ -705,7 +737,7 @@ ScriptsOnlyBuild:
     className: PlayModeRunnerCallback
   - hash:
       serializedVersion: 2
-      Hash: 94a1b6f3b8b4357f94c59343ee6fb7f2
+      Hash: 35bf8fcd21261a78acd90d5e5d747b31
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DeckSystem
@@ -928,4 +960,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/04Scenes/BattleScene7x7.unity
-  playerPath: C:/Users/sung9/Downloads/1213.apk
+  playerPath: C:/Users/sung9/Downloads/hpbar_&_cardUI.apk

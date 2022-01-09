@@ -10,16 +10,22 @@ public class CardUI : MonoBehaviour, IPointerClickHandler//, IBeginDragHandler, 
 {
 
     public CardInfo cardInfo;
-
     public static bool usingcard = false;
-
-
     public static GameObject selected_Card;
 
     public void cardInfoUI()
     {
-        transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(cardInfo.ID.ToString());
-        // 여기에 이미지 + 카드효과 등등 표시하는 기능 추가해야함
+        Set_ILLUSTUI();
+        Set_Background();
+        SetCostUI();
+        SetNameUI();
+        SetDetailUI();
+        SetProperty1UI();
+        SetProperty2UI();
+        // transform.GetChild(2).GetComponent<TextMeshProUGUI>().SetText(cardInfo.ID.ToString());
+        // // 여기에 이미지 + 카드효과 등등 표시하는 기능 추가해야함
+        // transform.GetChild(0).GetComponent<Image>().sprite = cardInfo.card_Sprites[0];
+        // transform.GetChild(1).GetComponent<Image>().sprite = cardInfo.card_Sprites[1];
     }
     #region dragg
     // public void OnDrag(PointerEventData eventData)
@@ -124,4 +130,34 @@ public class CardUI : MonoBehaviour, IPointerClickHandler//, IBeginDragHandler, 
                 break;
         }
     }
+    public void Set_ILLUSTUI()
+    {
+        transform.GetChild(0).GetComponent<Image>().sprite = cardInfo.card_Sprites[0];
+    }
+    public void Set_Background()
+    {
+        transform.GetChild(1).GetComponent<Image>().sprite = cardInfo.card_Sprites[1];
+    }
+    public void SetCostUI()
+    {
+        transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = cardInfo.Card_Cost.ToString();
+    }
+    public void SetNameUI()
+    {
+        transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = cardInfo.Card_name;
+    }
+    public void SetDetailUI()
+    {
+        transform.GetChild(4).GetComponent<TextMeshProUGUI>().text = cardInfo.Card_detail;
+    }
+    public void SetProperty1UI()
+    {
+        transform.GetChild(5).GetComponent<Image>().sprite = cardInfo.card_Sprites[2];
+    }
+    public void SetProperty2UI()
+    {
+        transform.GetChild(6).GetComponent<Image>().sprite = cardInfo.card_Sprites[3];
+    }
+
+
 }

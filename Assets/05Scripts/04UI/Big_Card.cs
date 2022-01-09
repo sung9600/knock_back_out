@@ -16,7 +16,7 @@ public class Big_Card : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Big_Card_Panel big_Card_Panel;
     public void SetData(CardInfo card)
     {
-        NameText.text = card.name;
+        NameText.text = card.Card_name;
         DetailText.text = "details";
         big_Card_Panel.gameObject.SetActive(true);
     }

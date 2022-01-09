@@ -27,6 +27,7 @@ public class InputManager
     private Vector3Int default_Grid = new Vector3Int(-100, -100, -100);
 
     private bool line_on = false;
+    public void get_lineon(bool target) { line_on = target; }
     public void onLateUpdate()
     {
         #region 기존

@@ -128,7 +128,7 @@ public class MapManager : MonoBehaviour
             {
                 if (map[i, j] == (int)tileType.water) map[i, j] = 1 << 6;
                 if (map[i, j] == (int)tileType.rock) map[i, j] = 1 << 7;
-                Debug.Log(i + "," + j + ":" + map[i, j]);
+                //Debug.Log(i + "," + j + ":" + map[i, j]);
             }
         }
     }
